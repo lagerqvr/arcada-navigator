@@ -36,6 +36,6 @@ export default {
     background-color: rgba(red, green, blue, alpha);
   }
   p {
-    font-size: 1.3rem;
+    font-size: 1.7rem;
   }
 </style>
