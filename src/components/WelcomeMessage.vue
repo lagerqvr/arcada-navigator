@@ -1,35 +1,45 @@
 <template>
   <div>
-    <div class="welcome-container speech" v-if="true">
-      <p>Välkommen! Hur kan jag hjälpa dig idag?</p>
-      <p>Welcome! How can I help you today?</p>
-      <p>Tervetuloa! Kuinka voin auttaa sinua tänään?</p>
+    <div @click="openMenu()" class="welcome-container sb">
+      <a>Välkommen! Hur kan jag hjälpa dig idag?</a>
+      <a>Welcome! How can I help you today?</a>
+      <a>Tervetuloa! Kuinka voin auttaa sinua tänään?</a>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  
+  methods: {
+    openMenu() {
+      this.$emit('openMenu');
+    }
+  }
 }
 </script>
 
 <style scoped>
   .welcome-container {
     position: relative;
+    display: flex;
+    flex-wrap: wrap;
     margin: auto;
     background-color: rgba(129, 41, 144);
-    width: 50%;
+    width: 900px;
     height: 450px;
     padding: 40px;
     border-radius: 10px;
   }
-  p {
+  a {
     color: white;
-    font-size: 1.9rem;
-    margin: 80px 0;
+    font-size: 2.2em;
+    height: 33%;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    line-height: 148.5px;
   }
-  .speech:before {
+  .sb:before {
     content: "";
     width: 0px;
     height: 0px;
@@ -39,5 +49,6 @@ export default {
     border-top: 10px solid #812990;
     border-bottom: 10px solid transparent;
     bottom: -19px;
+    right: 50%;
 }
 </style>
