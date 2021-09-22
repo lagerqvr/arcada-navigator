@@ -4,7 +4,8 @@ import App from './App.vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faInfo, faCloud, faMapSigns, faBook, faUtensils, faBus, faQuestionCircle, faGlobeAmericas } from '@fortawesome/free-solid-svg-icons';
-import router from './router'
+import router from './router';
+import "animate.css";
 
 library.add(faInfo, faCloud, faMapSigns, faBook, faUtensils, faBus, faQuestionCircle, faGlobeAmericas);
 

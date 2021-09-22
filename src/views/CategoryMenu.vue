@@ -1,15 +1,28 @@
 <template>
-  <div :class="showWelcome ? 'border' : ''">
-    <img id="logo" @click="showWelcome = true" src="../assets/arcada_logo.png" height="200px">
-    <WelcomeMessage @openMenu="showWelcome = false" v-if="showWelcome" />
-    <div class="category-container" v-else>
-      <CategoryButton v-for="(category) in categories"
-      :key="category.name"
-      :name="category.name"
-      :color="category.color"
-      :icon="category.icon"
-      />
-    </div>
+  <div class="border" :class="showWelcome ? 'active' : ''">
+    <img
+      id="logo"
+      @click="showWelcome = true"
+      src="../assets/arcada_logo.png"
+      height="200px"
+    />
+    <transition
+      mode="out-in"
+      enter-active-class="animate__animated animate__fadeIn animate__faster"
+      leave-active-class="animate__animated animate__fadeOut animate__faster"
+    >
+      <WelcomeMessage @openMenu="showWelcome = false" v-if="showWelcome" />
+
+      <div class="category-container" v-if="!showWelcome">
+        <CategoryButton
+          v-for="category in categories"
+          :key="category.name"
+          :name="category.name"
+          :color="category.color"
+          :icon="category.icon"
+        />
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -22,18 +35,18 @@ export default {
   name: 'CategoryMenu',
   components: {
     CategoryButton,
-    WelcomeMessage
+    WelcomeMessage,
   },
   data: function() {
     return {
       categories: [],
       showWelcome: true,
-    }
+    };
   },
   mounted: function() {
     this.categories = categories; // Lagar categories.json datan till categories arrayn.
-  }
-}
+  },
+};
 </script>
 
 <style>
@@ -44,11 +57,15 @@ export default {
   margin: auto;
 }
 .border {
-  border: 2px solid black;
   padding-bottom: 5%;
-  margin: 5% 12%;
+  margin: 5% 5%;
+  transition: 1.5s;
+}
+.border.active {
+  border: 2px solid black;
+  margin: 4.91% 12%;
 }
 #logo {
-  margin: -30px 0;
+  margin: -30px;
 }
 </style>
