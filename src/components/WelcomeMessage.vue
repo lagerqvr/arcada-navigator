@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="welcome-container sb">
-      <a @click="openMenu('en')">Välkommen! Hur kan jag hjälpa dig idag?</a>
-      <a @click="openMenu('fi')"> Welcome! How can I help you today?</a>
-      <a @click="openMenu('se')"
+      <a @click="openMenu('se')">Välkommen! Hur kan jag hjälpa dig idag?</a>
+      <a @click="openMenu('en')"> Welcome! How can I help you today?</a>
+      <a @click="openMenu('fi')"
         >Tervetuloa! Kuinka voin auttaa sinua tänään?</a
       >
     </div>
