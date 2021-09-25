@@ -1,4 +1,5 @@
 <template>
+  <!-- Visar border bara på welcome screen -->
   <div class="border" :class="showWelcome ? 'active' : ''">
     <img
       id="logo"
@@ -11,7 +12,7 @@
       enter-active-class="animate__animated animate__fadeIn animate__faster"
       leave-active-class="animate__animated animate__fadeOut animate__faster"
     >
-      <WelcomeMessage @openMenu="showWelcome = false" v-if="showWelcome" />
+      <WelcomeMessage @openMenu="handleClick(lang)" v-if="showWelcome" />
 
       <div class="category-container" v-if="!showWelcome">
         <CategoryButton
@@ -37,10 +38,17 @@ export default {
     CategoryButton,
     WelcomeMessage,
   },
+  methods: {
+    handleClick: function(lang) {
+      this.showWelcome = false;
+      this.language = lang;
+    },
+  },
   data: function() {
     return {
       categories: [],
       showWelcome: true,
+      language: 'sv',
     };
   },
   mounted: function() {
@@ -57,6 +65,7 @@ export default {
   margin: auto;
 }
 .border {
+  border-radius: 30px;
   padding-bottom: 5%;
   margin: 5% 5%;
   transition: 1.5s;
