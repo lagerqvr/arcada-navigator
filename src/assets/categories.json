@@ -15,7 +15,7 @@
     "name": "Directions",
     "icon": "map-signs",
     "color": "rgba(0, 35, 240, 0.35)",
-    "route": null
+    "route": "Directions"
   },
   {
     "name": "Library",
