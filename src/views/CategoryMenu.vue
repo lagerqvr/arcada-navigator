@@ -21,6 +21,7 @@
           :name="category.name"
           :color="category.color"
           :icon="category.icon"
+          :route="category.route"
         />
       </div>
     </transition>
@@ -57,7 +58,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .category-container {
   display: flex;
   flex-flow: row wrap;

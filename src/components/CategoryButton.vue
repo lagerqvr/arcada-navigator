@@ -1,6 +1,6 @@
 <template>
   <router-link
-    to="./"
+    :to="{ path: route }"
     class="background"
     :style="{ 'background-color': color }"
   >
