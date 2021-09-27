@@ -1,0 +1,443 @@
+{
+  "B323": {
+    "name": "Språklabb",
+    "category": "ADB-Klass"
+  },
+  "D399": {
+    "info": "Telelabb",
+    "category": "ADB-Klass"
+  },
+  "E383": {
+    "info": "Lila",
+    "category": "ADB-Klass"
+  },
+  "E384": {
+    "info": "Orange",
+    "category": "ADB-Klass"
+  },
+  "E385": {
+    "info": "Gul",
+    "category": "ADB-Klass"
+  },
+  "E387": {
+    "info": "Rosa",
+    "category": "ADB-Klass"
+  },
+  "F365": {
+    "info": "Beige",
+    "category": "ADB-Klass"
+  },
+  "F369": {
+    "info": "Grön",
+    "category": "ADB-Klass"
+  },
+  "F143": {
+    "info": "Stora auditoriet",
+    "category": "Auditorium"
+  },
+  "F249": {
+    "info": "Lilla auditoriet",
+    "category": "Auditorium"
+  },
+  "M702": {
+    "info": "Grupprum",
+    "category": "Grupprum"
+  },
+  "A311": {
+    "info": "",
+    "category": "Klassrum"
+  },
+  "A503": {
+    "info": " - 29.10.2019",
+    "category": "Klassrum"
+  },
+  "A511": {
+    "info": "",
+    "category": "Klassrum"
+  },
+  "B320": {
+    "info": "",
+    "category": "Klassrum"
+  },
+  "B326": {
+    "info": "Krysset",
+    "category": "Klassrum"
+  },
+  "B327": {
+    "info": "Kugghjulet",
+    "category": "Klassrum"
+  },
+  "B328": {
+    "info": "Raketen",
+    "category": "Klassrum"
+  },
+  "B518": {
+    "info": "",
+    "category": "Klassrum"
+  },
+  "B522": {
+    "info": "",
+    "category": "Klassrum"
+  },
+  "D4106": {
+    "info": "",
+    "category": "Klassrum"
+  },
+  "D4107-08": {
+    "info": "24.08.2015 - ",
+    "category": "Klassrum"
+  },
+  "D4109": {
+    "info": "",
+    "category": "Klassrum"
+  },
+  "D4110": {
+    "info": "",
+    "category": "Klassrum"
+  },
+  "E380": {
+    "info": "",
+    "category": "Klassrum"
+  },
+  "E381": {
+    "info": "",
+    "category": "Klassrum"
+  },
+  "A307": {
+    "info": "",
+    "category": "Mötesrum"
+  },
+  "B433": {
+    "info": "",
+    "category": "Mötesrum"
+  },
+  "B434": {
+    "info": "",
+    "category": "Mötesrum"
+  },
+  "B435": {
+    "info": "",
+    "category": "Mötesrum"
+  },
+  "B436": {
+    "info": "",
+    "category": "Mötesrum"
+  },
+  "B517": {
+    "info": "",
+    "category": "Mötesrum"
+  },
+  "C240": {
+    "info": "Studentmöten",
+    "category": "Mötesrum"
+  },
+  "C242": {
+    "info": "Studentmöten",
+    "category": "Mötesrum"
+  },
+  "C243": {
+    "info": "Studentmöten",
+    "category": "Mötesrum"
+  },
+  "C342": {
+    "info": "",
+    "category": "Mötesrum"
+  },
+  "C343": {
+    "info": "",
+    "category": "Mötesrum"
+  },
+  "C344": {
+    "info": "",
+    "category": "Mötesrum"
+  },
+  "C347": {
+    "info": "",
+    "category": "Mötesrum"
+  },
+  "C348": {
+    "info": "Webinarierum",
+    "category": "Mötesrum"
+  },
+  "C447": {
+    "info": "",
+    "category": "Mötesrum"
+  },
+  "C454": {
+    "info": "",
+    "category": "Mötesrum"
+  },
+  "C455": {
+    "info": "",
+    "category": "Mötesrum"
+  },
+  "C456": {
+    "info": "",
+    "category": "Mötesrum"
+  },
+  "C538": {
+    "info": "Gustavsonska rummet",
+    "category": "Mötesrum"
+  },
+  "C542": {
+    "info": "",
+    "category": "Mötesrum"
+  },
+  "D394": {
+    "info": "",
+    "category": "Mötesrum"
+  },
+  "E253": {
+    "info": "Kabinett Pacius",
+    "category": "Mötesrum"
+  },
+  "E254": {
+    "info": "Kabinett Runeberg",
+    "category": "Mötesrum"
+  },
+  "E377": {
+    "info": "Grupprum",
+    "category": "Mötesrum"
+  },
+  "F4115": {
+    "info": "Stand Up",
+    "category": "Mötesrum"
+  },
+  "F471": {
+    "info": "Sergelius",
+    "category": "Mötesrum"
+  },
+  "F472": {
+    "info": "Wegelius",
+    "category": "Mötesrum"
+  },
+  "F473": {
+    "info": "01.09.2021 - ",
+    "category": "Mötesrum"
+  },
+  "A504": {
+    "info": "",
+    "category": "Projektrum"
+  },
+  "A505": {
+    "info": "",
+    "category": "Projektrum"
+  },
+  "A206": {
+    "info": "Inspelningsrum",
+    "category": "Specialrum"
+  },
+  "A207": {
+    "info": "Ljudedit 1",
+    "category": "Specialrum"
+  },
+  "A208": {
+    "info": "Ljudedit 2",
+    "category": "Specialrum"
+  },
+  "A209": {
+    "info": "Surroundmix",
+    "category": "Specialrum"
+  },
+  "A210": {
+    "info": "Kontrollrum",
+    "category": "Specialrum"
+  },
+  "A211": {
+    "info": "Multihall",
+    "category": "Specialrum"
+  },
+  "A214": {
+    "info": "Sändningsrum",
+    "category": "Specialrum"
+  },
+  "A215.1": {
+    "info": "Edit",
+    "category": "Specialrum"
+  },
+  "A215.2": {
+    "info": "Edit",
+    "category": "Specialrum"
+  },
+  "A216": {
+    "info": "Edit",
+    "category": "Specialrum"
+  },
+  "A217": {
+    "info": "Edit",
+    "category": "Specialrum"
+  },
+  "A218": {
+    "info": "Färgkorrigering",
+    "category": "Specialrum"
+  },
+  "A303": {
+    "info": "Film&amp;TV",
+    "category": "Specialrum"
+  },
+  "A309": {
+    "info": "Film&amp;TV visningsrum",
+    "category": "Specialrum"
+  },
+  "A312": {
+    "info": "",
+    "category": "Specialrum"
+  },
+  "A313": {
+    "info": "Kultur- och produktionsrum",
+    "category": "Specialrum"
+  },
+  "A510": {
+    "info": "Innovationsrummet",
+    "category": "Specialrum"
+  },
+  "B224": {
+    "info": "Automationslabb",
+    "category": "Specialrum"
+  },
+  "B224.1": {
+    "info": "Heat Transfer Lab",
+    "category": "Specialrum"
+  },
+  "B225": {
+    "info": "Produktionslabb",
+    "category": "Specialrum"
+  },
+  "B225.1": {
+    "info": "Kompositlaboratorium",
+    "category": "Specialrum"
+  },
+  "B225.2": {
+    "info": "Plastlaboratorium",
+    "category": "Specialrum"
+  },
+  "B325": {
+    "info": "Walk in studio",
+    "category": "Specialrum"
+  },
+  "B516": {
+    "info": "",
+    "category": "Specialrum"
+  },
+  "C350": {
+    "info": "Oasis",
+    "category": "Specialrum"
+  },
+  "D173": {
+    "info": "Anatomi",
+    "category": "Specialrum"
+  },
+  "D271": {
+    "info": "Rehabilitering",
+    "category": "Specialrum"
+  },
+  "D272": {
+    "info": "",
+    "category": "Specialrum"
+  },
+  "D275": {
+    "info": "Rörelseanalys",
+    "category": "Specialrum"
+  },
+  "D280": {
+    "info": "Konditionssal",
+    "category": "Specialrum"
+  },
+  "D281": {
+    "info": "Plintklass",
+    "category": "Specialrum"
+  },
+  "D282": {
+    "info": "Plintklass",
+    "category": "Specialrum"
+  },
+  "D3100": {
+    "info": "Kemilabb",
+    "category": "Specialrum"
+  },
+  "D393": {
+    "info": "Elektroniklabb",
+    "category": "Specialrum"
+  },
+  "D396": {
+    "info": "",
+    "category": "Specialrum"
+  },
+  "D398": {
+    "info": "Elmätlabb",
+    "category": "Specialrum"
+  },
+  "E482": {
+    "info": "Simulator 1 - Förlossning",
+    "category": "Specialrum"
+  },
+  "E485": {
+    "info": "Skillstation",
+    "category": "Specialrum"
+  },
+  "E486": {
+    "info": "Simulator 2 - Mottagning",
+    "category": "Specialrum"
+  },
+  "E487.2": {
+    "info": "Simulator 3 - IVA",
+    "category": "Specialrum"
+  },
+  "E487.3": {
+    "info": "Simulator 4 - PKL",
+    "category": "Specialrum"
+  },
+  "E488": {
+    "info": "Klinisk vård",
+    "category": "Specialrum"
+  },
+  "E490": {
+    "info": "Vård",
+    "category": "Specialrum"
+  },
+  "E491": {
+    "info": "Barn",
+    "category": "Specialrum"
+  },
+  "E492": {
+    "info": "Debriefing",
+    "category": "Specialrum"
+  },
+  "E493": {
+    "info": "Förstavård",
+    "category": "Specialrum"
+  },
+  "E494": {
+    "info": "Simulator 5 - Hem",
+    "category": "Specialrum"
+  },
+  "F363": {
+    "info": "ARBIT",
+    "category": "Specialrum"
+  },
+  "F364": {
+    "info": "Svart",
+    "category": "Specialrum"
+  },
+  "F367": {
+    "info": "Robolab",
+    "category": "Specialrum"
+  },
+  "F368": {
+    "info": "Blå",
+    "category": "Specialrum"
+  },
+  "M703": {
+    "info": "Testlabb",
+    "category": "Specialrum"
+  },
+  "M704": {
+    "info": "Gym",
+    "category": "Specialrum"
+  },
+  "T3": {
+    "info": "Lilla torget",
+    "category": "Torg"
+  },
+  "T4": { "info": "Stora torget", "category": "Torg" }
+}
