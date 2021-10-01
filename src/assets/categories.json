@@ -33,7 +33,7 @@
     "name": "HSL",
     "icon": "bus",
     "color": "rgba(64, 230, 130, 0.35)",
-    "route": null
+    "route": "Hsl"
   },
   {
     "name": "Help",
