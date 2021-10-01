@@ -1,7 +1,6 @@
 <template>
   <div>
-    <Sidemenu />
-    <button @click="buttonPress" id="button">Push</button>
+    <Sidemenu @to-room="navigateToRoom" />
     <div class="map-container">
       <transition
         mode="out-in"
@@ -158,9 +157,6 @@ export default {
         );
       });
     },
-    buttonPress() {
-      this.navigateToRoom('B3');
-    },
     navigateToRoom(room) {
       let block = room.charAt(0);
       let floorNr = room.charAt(1);
@@ -179,10 +175,6 @@ export default {
       this.endpoint.left = floor[block][4];
 
       this.animatePath();
-      // this.currentPath =
-      // if (block != 'T' || block != 'M') {
-      //   console.log('not t nor m');
-      // }
     },
   },
   mounted() {

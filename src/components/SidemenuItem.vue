@@ -1,6 +1,7 @@
 <template>
-  <div class="item" @click="$emit(name)">
+  <div class="item" @click="$emit('to-room', name)">
     <p>{{ name }}</p>
+    <p class="info" v-if="info">{{ '/' + info }}</p>
   </div>
 </template>
 
@@ -13,4 +14,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.info {
+  margin-left: 15px;
+  color: #666;
+  font-size: 1.3rem;
+}
+</style>

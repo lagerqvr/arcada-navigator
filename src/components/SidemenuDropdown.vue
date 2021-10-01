@@ -9,7 +9,13 @@
       />
     </div>
     <div class="sub-container" v-show="showDropdown">
-      <SidemenuItem v-for="item in items" :key="item.name" />
+      <SidemenuItem
+        v-for="item in items"
+        :key="item.name"
+        :name="item.name"
+        :info="item.info"
+        v-on="$listeners"
+      />
     </div>
   </div>
 </template>
@@ -35,6 +41,10 @@ export default {
       this.showDropdown = !this.showDropdown;
     },
   },
+  mounted() {
+    //console.log(this.items);
+    //console.log(this.category);
+  },
 };
 </script>
 
@@ -55,6 +65,7 @@ export default {
 .sub-container .item {
   padding-left: 40px;
   background-color: #f5f5f5;
+  justify-content: flex-start;
 }
 
 .dropdown-container p {
