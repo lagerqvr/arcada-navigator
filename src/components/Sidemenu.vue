@@ -11,39 +11,45 @@
       <div class="circle" style="background-color: #812990">E</div>
       <div class="circle" style="background-color: #812990">F</div>
     </div>
-    <div class="item">
-      <p>ADB-klass</p>
-      <font-awesome-icon class="chevron-right" icon="chevron-right" />
-    </div>
-    <div class="item">
-      <p>Auditorium</p>
-      <font-awesome-icon class="chevron-right" icon="chevron-right" />
-    </div>
-    <div class="item">
-      <p>Klassrum</p>
-      <font-awesome-icon class="chevron-right" icon="chevron-right" />
-    </div>
-    <div class="item">
-      <p>Mötesrum</p>
-      <font-awesome-icon class="chevron-right" icon="chevron-right" />
-    </div>
-    <div class="item">
-      <p>Specialrum</p>
-      <font-awesome-icon class="chevron-right" icon="chevron-right" />
-    </div>
-    <div class="item">
-      <p>Auditorium</p>
-      <font-awesome-icon class="chevron-right" icon="chevron-right" />
-    </div>
-    <div class="item">
-      <p>Torg</p>
-      <font-awesome-icon class="chevron-right" icon="chevron-right" />
-    </div>
+    <SidemenuDropdown
+      v-for="category in categories"
+      :key="category.name"
+      :category="category.name"
+    />
   </div>
 </template>
 
 <script>
-export default {};
+import rooms from '../assets/rooms.json';
+import SidemenuDropdown from '../components/SidemenuDropdown.vue';
+
+export default {
+  components: {
+    SidemenuDropdown,
+  },
+  methods: {},
+  created() {
+    for (const room in rooms) {
+      this.categories[rooms[room].category].rooms[room] = rooms[room].info;
+      this.categories[rooms[room].category].name = rooms[room].category;
+    }
+    console.log(this.categories);
+  },
+  data() {
+    return {
+      categories: {
+        ADBKlass: { rooms: {} },
+        Auditorium: { rooms: {} },
+        Grupprum: { rooms: {} },
+        Klassrum: { rooms: {} },
+        Mötesrum: { rooms: {} },
+        Projektrum: { rooms: {} },
+        Specialrum: { rooms: {} },
+        Torg: { rooms: {} },
+      },
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -57,6 +63,7 @@ export default {};
   z-index: 100;
   box-shadow: 0 0 20px rgb(0 0 0 / 30%);
 }
+
 img {
   margin-top: -25px;
   height: 100px;
@@ -73,17 +80,6 @@ img {
   border-top: 1px solid #e8eaed;
   border-bottom: 1px solid #e8eaed;
   justify-content: space-between;
-}
-
-.item > p {
-  margin: auto 0;
-  align-items: flex-end;
-}
-
-.chevron-right {
-  color: #666;
-  margin: auto 25px;
-  transform: 0.3s;
 }
 
 .item.block {

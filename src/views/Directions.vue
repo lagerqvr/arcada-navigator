@@ -3,19 +3,53 @@
     <Sidemenu />
     <button @click="buttonPress" id="button">Push</button>
     <div class="map-container">
-      <img src="../assets/floor2.png" class="floor" draggable="false" />
+      <transition
+        mode="out-in"
+        enter-active-class="animate__animated animate__fadeIn"
+        leave-active-class="animate__animated animate__fadeOut"
+      >
+        <img
+          :src="require('../assets/floor2.png')"
+          class="floor"
+          draggable="false"
+          v-if="currentFloor == 2"
+          key="floor2"
+        />
+        <img
+          :src="require('../assets/floor3.png')"
+          class="floor"
+          draggable="false"
+          v-else-if="currentFloor == 3"
+          key="floor3"
+        />
+        <img
+          :src="require('../assets/floor4.png')"
+          class="floor"
+          draggable="false"
+          v-else-if="currentFloor == 4"
+          key="floor4"
+        />
+        <img
+          :src="require('../assets/floor5.png')"
+          class="floor"
+          draggable="false"
+          v-else-if="currentFloor == 5"
+          key="floor5"
+        />
+      </transition>
       <svg
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink"
-        viewBox="0 0 516.3 190"
+        viewBox="0 0 400 220"
       >
-        <path
-          id="path"
-          d="M 370 155 C 340 137 321 138 300 138 L 186 138 C 181 138 181 135 181 133 C 181 131.6667 181 129 178 129 C 176 129 175 129 175 125 L 175 100"
-        />
+        <path id="path" :d="navigationPath[currentStep]" :key="render" />
       </svg>
-      <div class="endpoint">
+      <div
+        class="endpoint"
+        v-show="showMarker"
+        :style="{ top: endpoint.top, left: endpoint.left }"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -53,57 +87,123 @@
           />
         </svg>
       </div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        version="1.1"
+        viewBox="0 0 16 16"
+        xml:space="preserve"
+        class="start"
+        v-show="currentFloor == 2"
+      >
+        <path
+          class="inner"
+          fill="#444444"
+          d="M8 4c-2.2 0-4 1.8-4 4s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4z"
+        />
+        <path
+          class="outer"
+          fill="#444444"
+          d="M8 1c3.9 0 7 3.1 7 7s-3.1 7-7 7-7-3.1-7-7 3.1-7 7-7zM8 0c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8v0z"
+        />
+      </svg>
     </div>
   </div>
 </template>
 
 <script>
+import Vue from 'vue';
 import ProgressBar from 'progressbar.js';
 import Sidemenu from '../components/Sidemenu.vue';
+import paths from '../assets/paths.json';
 
 export default {
   components: {
     Sidemenu,
   },
   methods: {
-    changeProgress: function() {
-      let t = this.target;
-      let v = this.myAnimation.value();
-      let d = t > v ? t - v : v - t;
+    animatePath() {
+      // let t = this.target;
+      // let v = this.pathAnimation.value();
+      // let d = t > v ? t - v : v - t;
+      this.render++; // får <path> att re-rendera, annars detectar vue inte alltid att :d="" förändras
 
-      this.myAnimation.animate(
-        this.target,
-        {
-          duration: 2000 * d,
-        },
-        () => {
-          console.log();
-          if (this.target == 1 && this.animateMarker !== true) {
-            this.animateMarker = true;
-          } else {
+      Vue.nextTick(() => {
+        this.pathAnimation = new ProgressBar.Path('#path');
+
+        this.pathAnimation.animate(
+          this.target,
+          {
+            duration: 2500,
+          },
+          () => {
+            if (this.targetStep != this.currentStep) {
+              setTimeout(() => {
+                this.currentFloor = this.targetFloor;
+                this.pathAnimation.set(0);
+                setTimeout(() => {
+                  this.currentStep++;
+                  this.animatePath();
+                  this.showMarker = true;
+                }, 1000);
+              }, 3000);
+            }
             this.animateMarker = false;
+            if (this.target == 1 && this.showMarker == true) {
+              this.animateMarker = true;
+            } else {
+              this.animateMarker = false;
+            }
           }
-        }
-      );
+        );
+      });
     },
     buttonPress() {
-      this.changeProgress(
-        this.target == 1 ? (this.target = 0) : (this.target = 1)
-      );
+      this.navigateToRoom('B3');
+    },
+    navigateToRoom(room) {
+      let block = room.charAt(0);
+      let floorNr = room.charAt(1);
+      let floor = paths['floor' + floorNr];
+      this.targetFloor = floorNr;
+      this.targetStep = floor[block][2];
+
+      if (floorNr == 2) {
+        this.navigationPath[0] = floor[block][0];
+        this.showMarker = true;
+      } else {
+        this.navigationPath[0] = paths.floor2.elevator[0];
+        this.navigationPath[1] = floor[block][0];
+      }
+      this.endpoint.top = floor[block][3];
+      this.endpoint.left = floor[block][4];
+
+      this.animatePath();
+      // this.currentPath =
+      // if (block != 'T' || block != 'M') {
+      //   console.log('not t nor m');
+      // }
     },
   },
   mounted() {
-    this.myAnimation = new ProgressBar.Path('#path', {
-      duration: 2000,
+    this.pathAnimation = new ProgressBar.Path('#path', {
+      duration: 3000,
     });
-    this.myAnimation.set(0);
-    this.changeProgress();
+    // this.navigateToRoom('F3');
   },
   data: function() {
     return {
       target: 1,
-      myAnimation: null,
+      pathAnimation: null,
       animateMarker: false,
+      currentFloor: 2,
+      currentStep: 0,
+      targetStep: 0,
+      targetFloor: 2,
+      navigationPath: ['m 301.3 150 c -14 0 -20 -8 -20 -19 l 0 -22.5'],
+      showMarker: false,
+      endpoint: {},
+      render: 0,
     };
   },
 };
@@ -113,21 +213,18 @@ export default {
 .map-container {
   position: absolute;
   display: inline-block;
-  right: 0px;
+  right: 5%;
+  top: 15%;
 }
 #path {
   fill: none;
-  stroke: red;
-  stroke-width: 2px;
-  stroke-linejoin: round;
-  stroke-miterlimit: 0;
-  stroke-linecap: round;
+  stroke: #8989ff;
+  stroke-width: 2.5;
 }
 svg {
   position: absolute;
   top: 0px;
   left: 0px;
-  width: 1800px;
   max-width: 100%;
 }
 
@@ -135,6 +232,7 @@ svg {
   display: block;
   max-width: 100%;
   pointer-events: none;
+  --animate-duration: 0.1s;
 }
 
 #button {
@@ -146,8 +244,6 @@ svg {
   position: absolute;
   top: 0;
   left: 0;
-  top: 28.8%;
-  left: 32.4%;
   width: 3%;
   z-index: 1;
 }
@@ -166,5 +262,13 @@ svg {
 .circle {
   width: 60%;
   margin: 67% 20%;
+}
+
+.start {
+  position: absolute;
+  width: 2.75%;
+  top: 54.1%;
+  left: 74%;
+  z-index: 0;
 }
 </style>

@@ -1,35 +1,35 @@
 {
   "B323": {
-    "name": "Språklabb",
-    "category": "ADB-Klass"
+    "info": "Språklabb",
+    "category": "ADBKlass"
   },
   "D399": {
     "info": "Telelabb",
-    "category": "ADB-Klass"
+    "category": "ADBKlass"
   },
   "E383": {
     "info": "Lila",
-    "category": "ADB-Klass"
+    "category": "ADBKlass"
   },
   "E384": {
     "info": "Orange",
-    "category": "ADB-Klass"
+    "category": "ADBKlass"
   },
   "E385": {
     "info": "Gul",
-    "category": "ADB-Klass"
+    "category": "ADBKlass"
   },
   "E387": {
     "info": "Rosa",
-    "category": "ADB-Klass"
+    "category": "ADBKlass"
   },
   "F365": {
     "info": "Beige",
-    "category": "ADB-Klass"
+    "category": "ADBKlass"
   },
   "F369": {
     "info": "Grön",
-    "category": "ADB-Klass"
+    "category": "ADBKlass"
   },
   "F143": {
     "info": "Stora auditoriet",

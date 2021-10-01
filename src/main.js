@@ -6,6 +6,8 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faInfo, faCloud, faMapSigns, faBook, faUtensils, faBus, faQuestionCircle, faGlobeAmericas, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import router from './router';
 import "animate.css";
+import axios from 'axios';
+Vue.prototype.$http = axios;
 
 library.add(faInfo, faCloud, faMapSigns, faBook, faUtensils, faBus, faQuestionCircle, faGlobeAmericas, faChevronRight);
 
