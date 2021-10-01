@@ -14,8 +14,8 @@
 export default {
   methods: {
     openMenu(lang) {
-      this.$emit('openMenu');
-      this.$emit('chooseLang', lang);
+      this.$emit('open-menu');
+      this.$emit('choose-lang', lang);
     },
   },
 };
