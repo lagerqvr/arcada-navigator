@@ -70,9 +70,10 @@ export default {
   box-shadow: 0 0 20px rgb(0 0 0 / 30%);
   overflow: hidden;
   overflow-y: scroll;
+  scrollbar-width: none;
 }
 
-.sidemenu::-webkit-scrollbar {
+::-webkit-scrollbar {
   display: none;
 }
 
