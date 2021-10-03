@@ -1,43 +1,49 @@
 <template>
-  <div class="timeTabel-container">
-    <div v-for="post in posts" v-bind:key=" post.$.line + post.$.time ">
-      <table class="flex-container">
-        <p class="destination">{{ post.$.destination }}</p>
-        <p class="line">{{ post.$.line }}</p>
-        <p class="time">{{ formateTime(post.$.time) }}</p>
-        <p class="type">{{ post.$.type }}</p>
-      </table>
+  <div>
+    <AppReturnButton />
+    <div class="timeTabel-container">
+      <div v-for="post in posts" v-bind:key="post.$.line + post.$.time">
+        <table class="flex-container">
+          <p class="destination">{{ post.$.destination }}</p>
+          <p class="line">{{ post.$.line }}</p>
+          <p class="time">{{ formateTime(post.$.time) }}</p>
+          <p class="type">{{ post.$.type }}</p>
+        </table>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import axios from "axios";
-import { parseString } from "xml2js";
+import axios from 'axios';
+import { parseString } from 'xml2js';
+import AppReturnButton from '../components/AppReturnButton.vue';
 
 export default {
-  name: "home",
+  name: 'home',
+  components: {
+    AppReturnButton,
+  },
   data: () => ({
     posts: [],
     polling: null,
-    
   }),
   created() {
     this.fetch();
     this.pollData();
   },
-    beforeDestroy() {
-      clearInterval(this.polling);
-    },
+  beforeDestroy() {
+    clearInterval(this.polling);
+  },
   methods: {
     fetch() {
       axios
-        .get("https://famnen.arcada.fi/arbs/infotv/hst.php")
+        .get('https://famnen.arcada.fi/arbs/infotv/hst.php')
         .then((response) => {
           var xmlData = response.data;
           parseString(xmlData, (err, results) => {
             this.posts = results.hst.departure;
-            console.log("hello polling");
+            console.log('hello polling');
           });
         });
     },

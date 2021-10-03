@@ -1,5 +1,6 @@
 <template>
   <div>
+    <AppReturnButton />
     <Sidemenu @to-room="navigateToRoom" />
     <div class="map-container">
       <MapFloorIndicator ref="elevator" />
@@ -117,11 +118,13 @@ import ProgressBar from 'progressbar.js';
 import Sidemenu from '../components/Sidemenu.vue';
 import paths from '../assets/paths.json';
 import MapFloorIndicator from '../components/MapFloorIndicator.vue';
+import AppReturnButton from '../components/AppReturnButton.vue';
 
 export default {
   components: {
     Sidemenu,
     MapFloorIndicator,
+    AppReturnButton,
   },
   methods: {
     animatePath() {
