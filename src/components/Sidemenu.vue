@@ -15,6 +15,8 @@
       v-for="category in categories"
       :key="category.name"
       :category="category.name"
+      :items="category.rooms"
+      v-on="$listeners"
     />
   </div>
 </template>
@@ -30,10 +32,14 @@ export default {
   methods: {},
   created() {
     for (const room in rooms) {
-      this.categories[rooms[room].category].rooms[room] = rooms[room].info;
+      this.categories[rooms[room].category].rooms[room] = {
+        name: room,
+        info: rooms[room].info,
+      };
+
       this.categories[rooms[room].category].name = rooms[room].category;
     }
-    console.log(this.categories);
+    //console.log(this.categories);
   },
   data() {
     return {
@@ -62,6 +68,13 @@ export default {
   background: #f0f0f0;
   z-index: 100;
   box-shadow: 0 0 20px rgb(0 0 0 / 30%);
+  overflow: hidden;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 img {
@@ -88,7 +101,6 @@ img {
   height: 100px;
   display: flex;
   flex-wrap: wrap;
-
   justify-content: space-evenly;
   margin: 0 0 15px;
   padding: 0 0 30px;

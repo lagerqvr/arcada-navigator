@@ -1,8 +1,8 @@
 <template>
   <div>
-    <Sidemenu />
-    <button @click="buttonPress" id="button">Push</button>
+    <Sidemenu @to-room="navigateToRoom" />
     <div class="map-container">
+      <MapFloorIndicator ref="elevator" />
       <transition
         mode="out-in"
         enter-active-class="animate__animated animate__fadeIn"
@@ -116,10 +116,12 @@ import Vue from 'vue';
 import ProgressBar from 'progressbar.js';
 import Sidemenu from '../components/Sidemenu.vue';
 import paths from '../assets/paths.json';
+import MapFloorIndicator from '../components/MapFloorIndicator.vue';
 
 export default {
   components: {
     Sidemenu,
+    MapFloorIndicator,
   },
   methods: {
     animatePath() {
@@ -129,21 +131,28 @@ export default {
       this.render++; // får <path> att re-rendera, annars detectar vue inte alltid att :d="" förändras
 
       Vue.nextTick(() => {
+        clearTimeout(this.elevatorTimer);
+        clearTimeout(this.floorTimer);
+
         this.pathAnimation = new ProgressBar.Path('#path');
 
         this.pathAnimation.animate(
           this.target,
           {
-            duration: 2500,
+            duration: this.animationDuration[this.currentStep],
           },
           () => {
-            if (this.targetStep != this.currentStep) {
-              setTimeout(() => {
+            clearTimeout(this.elevatorTimer);
+            clearTimeout(this.floorTimer);
+            if (this.targetStep > this.currentStep) {
+              this.$refs.elevator.toFloor(this.targetFloor);
+              this.elevatorTimer = setTimeout(() => {
                 this.currentFloor = this.targetFloor;
                 this.pathAnimation.set(0);
-                setTimeout(() => {
+                this.floorTimer = setTimeout(() => {
                   this.currentStep++;
                   this.animatePath();
+
                   this.showMarker = true;
                 }, 1000);
               }, 3000);
@@ -158,31 +167,49 @@ export default {
         );
       });
     },
-    buttonPress() {
-      this.navigateToRoom('B3');
-    },
     navigateToRoom(room) {
       let block = room.charAt(0);
       let floorNr = room.charAt(1);
-      let floor = paths['floor' + floorNr];
-      this.targetFloor = floorNr;
-      this.targetStep = floor[block][2];
+      let floor;
+      this.resetPath();
 
-      if (floorNr == 2) {
+      if ((block == 'F' && floorNr <= 2) || block == 'T') {
+        floor = paths['floor2'];
+        block += floorNr;
         this.navigationPath[0] = floor[block][0];
+        this.targetFloor = 2;
+        this.showMarker = true;
+      } else if (floorNr == 2 || block == 'M') {
+        floor = paths['floor2'];
+        this.navigationPath[0] = floor[block][0];
+        this.targetFloor = 2;
         this.showMarker = true;
       } else {
+        floor = paths['floor' + floorNr];
         this.navigationPath[0] = paths.floor2.elevator[0];
         this.navigationPath[1] = floor[block][0];
+        this.targetFloor = floorNr;
       }
+      this.animationDuration[floor[block][2]] = floor[block][1];
+      this.targetStep = floor[block][2];
       this.endpoint.top = floor[block][3];
       this.endpoint.left = floor[block][4];
 
       this.animatePath();
-      // this.currentPath =
-      // if (block != 'T' || block != 'M') {
-      //   console.log('not t nor m');
-      // }
+    },
+    resetPath() {
+      this.animateMarker = false;
+      this.currentFloor = 2;
+      this.currentStep = 0;
+      this.targetStep = 0;
+      this.targetFloor = 2;
+      this.showMarker = false;
+      this.pathAnimation.stop();
+      this.pathAnimation.set(0);
+      this.animationDuration[0] = 1500;
+      clearTimeout(this.elevatorTimer);
+      clearTimeout(this.floorTimer);
+      this.$refs.elevator.toFloor(2, '0.3s');
     },
   },
   mounted() {
@@ -204,6 +231,9 @@ export default {
       showMarker: false,
       endpoint: {},
       render: 0,
+      elevatorTimer: null,
+      floorTimer: null,
+      animationDuration: [1500],
     };
   },
 };
