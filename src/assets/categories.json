@@ -9,7 +9,7 @@
     "name": "Weather",
     "icon": "cloud",
     "color": "rgba(0, 255, 255, 0.35)",
-    "route": null
+    "route": "weatherApp"
   },
   {
     "name": "Directions",
