@@ -13,6 +13,7 @@
     "@fortawesome/vue-fontawesome": "^2.0.2",
     "animate.css": "^4.1.1",
     "axios": "^0.21.4",
+    "bootstrap": "^5.1.1",
     "core-js": "^3.6.5",
     "fs": "0.0.1-security",
     "progressbar.js": "^1.1.0",

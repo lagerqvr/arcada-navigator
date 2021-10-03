@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import CategoryMenu from '../views/CategoryMenu.vue'
 import Directions from '../views/Directions.vue'
 import Hsl from '../views/Hsl.vue'
+import WeatherApp from '../views/weatherApp.vue'
 
 Vue.use(VueRouter)
 
@@ -25,6 +26,11 @@ const routes = [
     path: '/hsl',
     name: 'Hsl',
     component: Hsl
+  },
+  {
+    path: '/weatherApp',
+    name: 'WeatherApp',
+    component: WeatherApp
   },
 ]
 
