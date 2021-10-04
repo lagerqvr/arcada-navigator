@@ -3,7 +3,7 @@
     "name": "Info",
     "icon": "info",
     "color": "rgba(205, 205, 0, 0.35)",
-    "route": null
+    "route": "Info"
   },
   {
     "name": "Weather",
