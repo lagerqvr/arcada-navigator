@@ -39,7 +39,7 @@
     "name": "Help",
     "icon": "question-circle",
     "color": "rgba(255, 25, 0, 0.35)",
-    "route": null
+    "route": "Help"
   },
   {
     "name": "Change Language",

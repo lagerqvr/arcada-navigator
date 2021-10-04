@@ -4,6 +4,7 @@ import CategoryMenu from "../views/CategoryMenu.vue";
 import Directions from "../views/Directions.vue";
 import Hsl from "../views/Hsl.vue";
 import Info from "../views/Info.vue";
+import Help from "../views/Help.vue";
 
 Vue.use(VueRouter);
 
@@ -31,6 +32,11 @@ const routes = [
     path: "/Info",
     name: "Info",
     component: Info,
+  },
+  {
+    path: "/Help",
+    name: "Help",
+    component: Help,
   },
 ];
 
