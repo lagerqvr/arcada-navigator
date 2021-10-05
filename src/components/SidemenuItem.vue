@@ -20,4 +20,7 @@ export default {
   color: #666;
   font-size: 1.3rem;
 }
+p {
+  margin: auto 0;
+}
 </style>

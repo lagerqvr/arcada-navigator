@@ -32,13 +32,14 @@ export default {
 <style scoped>
 .background {
   color: black;
-  padding: 40px 10px 25px 10px;
+  padding: 60px 10px;
   margin: 7px;
   flex: 1 0 20%;
   border-radius: 30px;
   text-decoration: none;
 }
 p {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
+  margin: 0;
 }
 </style>

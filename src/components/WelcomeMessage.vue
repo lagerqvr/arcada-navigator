@@ -1,9 +1,13 @@
 <template>
   <div>
     <div class="welcome-container sb">
-      <a @click="openMenu('se')">Välkommen! Hur kan jag hjälpa dig idag?</a>
-      <a @click="openMenu('en')"> Welcome! How can I help you today?</a>
-      <a @click="openMenu('fi')"
+      <a @click="openMenu('se')" class="a"
+        >Välkommen! Hur kan jag hjälpa dig idag?</a
+      >
+      <a @click="openMenu('en')" class="a">
+        Welcome! How can I help you today?</a
+      >
+      <a @click="openMenu('fi')" class="a"
         >Tervetuloa! Kuinka voin auttaa sinua tänään?</a
       >
     </div>
@@ -29,18 +33,19 @@ export default {
   margin: auto;
   background-color: rgba(129, 41, 144);
   width: 900px;
-  height: 380px;
+  height: 500px;
   padding: 20px;
   border-radius: 10px;
 }
-a {
+.a {
   color: white;
   font-size: 2.2em;
   height: 33%;
   margin: 0 auto;
   text-align: center;
   width: 100%;
-  line-height: 148.5px;
+  line-height: 151px;
+  text-decoration: none;
 }
 .sb:before {
   content: '';

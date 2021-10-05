@@ -1,6 +1,6 @@
 <template>
   <!-- Visar border bara på welcome screen -->
-  <div class="border" :class="showWelcome ? 'active' : ''">
+  <div class="border-container" :class="showWelcome ? 'active' : ''">
     <img
       id="logo"
       @click="showWelcome = true"
@@ -12,7 +12,7 @@
       enter-active-class="animate__animated animate__fadeIn animate__faster"
       leave-active-class="animate__animated animate__fadeOut animate__faster"
     >
-      <WelcomeMessage @open-menu="handleClick(lang)" v-if="showWelcome" />
+      <WelcomeMessage @open-menu="handleClick" v-if="showWelcome" />
 
       <div class="category-container" v-if="!showWelcome">
         <CategoryButton
@@ -65,13 +65,13 @@ export default {
   width: 90%;
   margin: auto;
 }
-.border {
+.border-container {
   border-radius: 30px;
-  padding-bottom: 5%;
+  padding-bottom: 6%;
   margin: 5% 5%;
   transition: 1.5s;
 }
-.border.active {
+.border-container.active {
   border: 2px solid black;
   margin: 4.91% 12%;
 }
