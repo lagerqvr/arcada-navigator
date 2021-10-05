@@ -7,25 +7,59 @@
       src="../assets/arcada_logo.png"
       height="200px"
     />
-    <h1>Help center</h1>
-    <br>
-    <h2 class="text-center">We love feedback!</h2>
-    <h4 class="text-center">Leave your suggestions for the app below</h4>
-    
 
-  <form ref="form" @submit.prevent="sendEmail">
-    <label>Name </label>
-    <input type="text" name="name" v-model="form.name"> 
-    <br><br>
-    <label>Email </label>
-    <input type="email" name="email" v-model="form.email"> 
-    <br><br>
-    <label>Message</label>
-    <textarea name="feedback" v-model="form.feedback"></textarea>
-    <br><br>
-    <input type="submit" value="Send">
-  </form> 
+    <h1>Help center</h1>
+
+    <h2 class="text-center">We ❤️ feedback!</h2>
+    <h5 class="description">Have a question or suggestion? Want to let us know about a bug? Contact us.</h5>
+
+    <div>
+        <article class="feedback center-div">
+    <b-form ref="form" @submit.prevent="sendEmail">
+      <b-form-group
+        id="input-group-1"
+        label="Email address:"
+        label-for="input-1"
+        description="We'll never share your email with anyone else."
+        class="form-label"
+      >
+        <b-form-input
+          id="input-1"
+          v-model="form.email"
+          type="email"
+          placeholder="Enter email"
+          required
+          size="lg"
+        ></b-form-input>
+      </b-form-group>
+
+      <b-form-group id="input-group-2" label="Your Name:" label-for="input-2" class="form-label">
+        <b-form-input
+          id="input-2"
+          v-model="form.name"
+          placeholder="Enter name"
+          required
+          size="lg"
+        ></b-form-input>
+      </b-form-group>
+    
+    <b-form-group id="input-group-2" label="Feedback:" label-for="input-2" class="form-label">
+        <b-form-textarea
+      id="textarea"
+      v-model="form.feedback"
+      placeholder="Enter something..."
+      rows="3"
+      max-rows="6"
+      size="lg"
+      
+    ></b-form-textarea>
+      </b-form-group>
+
+      <b-button type="submit" value="Send" variant="primary" class="submit">Submit</b-button>
+    </b-form>
+    </article>
   </div>
+</div>
   
 </template>
 
@@ -62,8 +96,10 @@ methods: {
     emailjs.send('service_3j73na5', 'template_f7a3aig', template_params, 'user_ToyHEfd5GZPjNQttiVV6j')
             .then((result) => {
                 console.log(result.text);
+                alert('Your feedback has been sent succesfully.')
             }, (error) => {
                 console.log(error.text);
+                alert('There was an issue with sending your feedback. Please try again later.')
             });
     },
   }
@@ -75,6 +111,55 @@ methods: {
 
 #logo {
   margin: -30px;
+}
+
+.feedback {
+  margin: 0px 600px;
+}
+
+p {
+  margin-top: 30px;
+  text-align: left;
+}
+
+.form-label {
+    text-align: left;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.submit {
+    font-size: 30px;
+    border-radius: 5px;
+    font-weight: 500;
+    margin: 10px;
+}
+
+.subtext {
+    width: 400px;
+    text-align: left;
+    margin: 0px 680px;
+}
+
+.center-div
+{
+  margin: 0 auto;
+  max-width: 700px;
+  height: 100px;
+  border-radius: 3px;
+}
+
+@media screen and (max-width: 600px) {
+   .center-div {
+        margin: 20px;
+        max-width: 700px;
+        height: 100px;
+        border-radius: 3px;
+   } 
+}
+
+.description {
+    margin-top: 25px;
 }
 
 </style>

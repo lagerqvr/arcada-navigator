@@ -1,6 +1,12 @@
 <template>
   <div>
     <AppReturnButton />
+    <img
+      id="logo"
+      @click="$router.push('/')"
+      src="../assets/arcada_logo.png"
+      height="200px"
+    />
     <div class="timeTabel-container">
       <div v-for="post in posts" v-bind:key="post.$.line + post.$.time">
         <table class="flex-container">
@@ -43,10 +49,7 @@ export default {
           var xmlData = response.data;
           parseString(xmlData, (err, results) => {
             this.posts = results.hst.departure;
-<<<<<<< HEAD
-=======
             console.log('hello polling');
->>>>>>> 438a24d5a73505990dff709e52c54584f1b24585
           });
         });
     },
