@@ -192,7 +192,7 @@ img {
   flex-wrap: wrap;
   justify-content: space-evenly;
   margin: 0 0 15px;
-  padding: 0 0 30px;
+  padding: 0 0 140px;
 }
 
 .block .circle {

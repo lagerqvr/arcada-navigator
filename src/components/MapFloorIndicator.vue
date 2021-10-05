@@ -135,7 +135,7 @@ export default {
 .floor {
   display: block;
   width: 100%;
-  margin: 3px 0px;
+  margin: 1px 0px;
   font-size: 1.4rem;
 }
 
