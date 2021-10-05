@@ -12,7 +12,7 @@
       enter-active-class="animate__animated animate__fadeIn animate__faster"
       leave-active-class="animate__animated animate__fadeOut animate__faster"
     >
-      <WelcomeMessage @open-menu="handleClick(lang)" v-if="showWelcome" />
+      <WelcomeMessage @open-menu="handleClick" v-if="showWelcome" />
 
       <div class="category-container" v-if="!showWelcome">
         <CategoryButton
@@ -65,9 +65,9 @@ export default {
   width: 90%;
   margin: auto;
 }
-.border-container{
+.border-container {
   border-radius: 30px;
-  padding-bottom: 5%;
+  padding-bottom: 6%;
   margin: 5% 5%;
   transition: 1.5s;
 }
