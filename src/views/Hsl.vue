@@ -43,10 +43,6 @@ export default {
           var xmlData = response.data;
           parseString(xmlData, (err, results) => {
             this.posts = results.hst.departure;
-<<<<<<< HEAD
-=======
-            console.log('hello polling');
->>>>>>> 438a24d5a73505990dff709e52c54584f1b24585
           });
         });
     },
