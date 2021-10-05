@@ -4,33 +4,115 @@
     <div class="line"></div>
     <div class="item block">
       <p>Block</p>
-      <div class="circle" style="background-color: #812990">A</div>
-      <div class="circle" style="background-color: #812990">B</div>
-      <div class="circle" style="background-color: #812990">C</div>
-      <div class="circle" style="background-color: #812990">D</div>
-      <div class="circle" style="background-color: #812990">E</div>
-      <div class="circle" style="background-color: #812990">F</div>
+      <div
+        class="circle"
+        @click="handleCircleButton('A')"
+        style="background-color: #812990"
+      >
+        <div class="circle-overlay" :class="{ active: blocks.A }" />
+        A
+      </div>
+      <div
+        class="circle"
+        @click="handleCircleButton('B')"
+        style="background-color: #812990"
+      >
+        <div class="circle-overlay" :class="{ active: blocks.B }" />
+        B
+      </div>
+      <div
+        class="circle"
+        @click="handleCircleButton('C')"
+        style="background-color: #812990"
+      >
+        <div class="circle-overlay" :class="{ active: blocks.C }" />
+        C
+      </div>
+      <div
+        class="circle"
+        @click="handleCircleButton('D')"
+        style="background-color: #812990"
+      >
+        <div class="circle-overlay" :class="{ active: blocks.D }" />
+        D
+      </div>
+      <div
+        class="circle"
+        @click="handleCircleButton('E')"
+        style="background-color: #812990"
+      >
+        <div class="circle-overlay" :class="{ active: blocks.E }" />
+        E
+      </div>
+      <div
+        class="circle"
+        @click="handleCircleButton('F')"
+        style="background-color: #812990"
+      >
+        <div class="circle-overlay" :class="{ active: blocks.F }" />
+        F
+      </div>
     </div>
-    <SidemenuDropdown
-      v-for="category in categories"
-      :key="category.name"
-      :category="category.name"
-      :items="category.rooms"
-      v-on="$listeners"
-    />
+    <div v-if="!showBlockView">
+      <SidemenuDropdown
+        v-for="category in categories"
+        :key="category.name"
+        :category="category.name"
+        :items="category.rooms"
+        v-on="$listeners"
+      />
+    </div>
+    <div v-else>
+      <SidemenuItem
+        v-for="room in rooms"
+        :key="room.name"
+        :name="room.name"
+        :info="room.info"
+        v-on="$listeners"
+        class="single"
+      />
+    </div>
   </div>
 </template>
 
 <script>
 import rooms from '../assets/rooms.json';
 import SidemenuDropdown from '../components/SidemenuDropdown.vue';
+import SidemenuItem from '../components/SidemenuItem.vue';
 
 export default {
   components: {
     SidemenuDropdown,
+    SidemenuItem,
   },
-  methods: {},
+  methods: {
+    filterByBlock(block) {
+      let i = 0;
+      for (const room in rooms) {
+        if (room.charAt(0) == block) {
+          this.rooms[i] = { name: room, info: rooms[room].info };
+          i++;
+        }
+      }
+      //console.log(this.rooms);
+      this.showBlockView = true;
+    },
+    handleCircleButton(block) {
+      // console.log(block, event.target.className);
+      this.blocks[block] = !this.blocks[block];
+      if (!this.blocks[block]) {
+        this.showBlockView = false;
+      } else {
+        for (const el in this.blocks) {
+          this.blocks[el] = false;
+        }
+        this.blocks[block] = !this.blocks[block];
+        this.filterByBlock(block);
+      }
+    },
+  },
   created() {
+    //this.filterByBlock('E');
     for (const room in rooms) {
       this.categories[rooms[room].category].rooms[room] = {
         name: room,
@@ -53,6 +135,9 @@ export default {
         Specialrum: { rooms: {} },
         Torg: { rooms: {} },
       },
+      rooms: [{ name: '', info: '' }],
+      blocks: { A: false, B: false, C: false, D: false, E: false, F: false },
+      showBlockView: false,
     };
   },
 };
@@ -95,6 +180,10 @@ img {
   justify-content: space-between;
 }
 
+.item.single {
+  justify-content: left;
+}
+
 .item.block {
   text-align: center;
   line-height: 30px;
@@ -116,6 +205,22 @@ img {
   line-height: 70px;
   color: #fff;
   margin: 0;
+}
+
+.circle-overlay.active::before {
+  content: 'X';
+  position: absolute;
+  background-color: rgb(197, 29, 29);
+  font-weight: bold;
+  font-size: 2rem;
+  display: block;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  line-height: 70px;
+  color: #fff;
+  margin: 0;
+  transition: 1s;
 }
 
 .block p {

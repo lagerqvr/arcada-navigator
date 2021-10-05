@@ -3,7 +3,7 @@
     "name": "Info",
     "icon": "info",
     "color": "rgba(205, 205, 0, 0.35)",
-    "route": null
+    "route": "Info"
   },
   {
     "name": "Weather",
@@ -39,7 +39,7 @@
     "name": "Help",
     "icon": "question-circle",
     "color": "rgba(255, 25, 0, 0.35)",
-    "route": null
+    "route": "Help"
   },
   {
     "name": "Change Language",

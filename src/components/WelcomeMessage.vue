@@ -29,8 +29,8 @@ export default {
   margin: auto;
   background-color: rgba(129, 41, 144);
   width: 900px;
-  height: 450px;
-  padding: 40px;
+  height: 380px;
+  padding: 20px;
   border-radius: 10px;
 }
 a {
