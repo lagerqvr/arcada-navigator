@@ -37,7 +37,6 @@ export default {
           var xmlData = response.data;
           parseString(xmlData, (err, results) => {
             this.posts = results.hst.departure;
-            console.log("hello polling");
           });
         });
     },
