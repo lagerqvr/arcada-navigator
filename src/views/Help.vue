@@ -8,8 +8,6 @@
       height="200px"
     />
 
-    <h1>Help center</h1>
-
     <h2 class="text-center">We ❤️ feedback!</h2>
     <h5 class="description">Have a question or suggestion? Want to let us know about a bug? Contact us.</h5>
 
@@ -103,11 +101,15 @@ methods: {
             });
     },
   }
-} 
+}
 
 </script>
 
 <style scoped>
+
+* {
+    font-weight: 300;
+}
 
 #logo {
   margin: -30px;
@@ -131,7 +133,7 @@ p {
 .submit {
     font-size: 30px;
     border-radius: 5px;
-    font-weight: 500;
+    font-weight: 300;
     margin: 10px;
 }
 

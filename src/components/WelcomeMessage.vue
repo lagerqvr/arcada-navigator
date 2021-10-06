@@ -31,7 +31,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   margin: auto;
-  background-color: rgba(129, 41, 144);
+  background-color: #812990;
   width: 900px;
   height: 500px;
   padding: 20px;

@@ -2,49 +2,49 @@
   {
     "name": "Info",
     "icon": "info",
-    "color": "rgba(205, 205, 0, 0.35)",
+    "color": "#812990",
     "route": "Info"
   },
   {
     "name": "Weather",
     "icon": "cloud",
-    "color": "rgba(0, 255, 255, 0.35)",
+    "color": "#C63081",
     "route": "weatherApp"
   },
   {
     "name": "Directions",
     "icon": "map-signs",
-    "color": "rgba(0, 35, 240, 0.35)",
+    "color": "#F3566B",
     "route": "Directions"
   },
   {
     "name": "Library",
     "icon": "book",
-    "color": "rgba(45, 253, 134, 0.35)",
+    "color": "#FF8B57",
     "route": null
   },
   {
     "name": "Lunch",
     "icon": "utensils",
-    "color": "rgba(12, 78, 187, 0.35)",
+    "color": "#FFC253",
     "route": null
   },
   {
     "name": "HSL",
     "icon": "bus",
-    "color": "rgba(64, 230, 130, 0.35)",
+    "color": "#4C55BB",
     "route": "Hsl"
   },
   {
     "name": "Help",
     "icon": "question-circle",
-    "color": "rgba(255, 25, 0, 0.35)",
+    "color": "#0075D2",
     "route": "Help"
   },
   {
     "name": "Change Language",
     "icon": "globe-americas",
-    "color": "rgba(100, 100, 100, 0.35)",
+    "color": "#00B6AD",
     "route": null
   }
 ]

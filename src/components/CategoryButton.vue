@@ -31,7 +31,7 @@ export default {
 
 <style scoped>
 .background {
-  color: black;
+  color: rgb(255, 255, 255);
   padding: 60px 10px;
   margin: 7px;
   flex: 1 0 20%;

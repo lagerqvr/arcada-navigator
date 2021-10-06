@@ -1,4 +1,4 @@
-<template>
+<template> 
 <div>
   <AppReturnButton />
 <img
@@ -8,14 +8,15 @@
       height="200px"
     />
     <div>
-      <article class="textbox">
-        <h2>This is a header</h2>
+      <div class="center-div">
+        <h2>Info</h2>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>This is Arcada Navigator, an app made by a group of students at Arcada. Arcada Navigator was created in order to make navigating the Arcada-building a bit easier. The app was also baked with some quality of life features like a lunch-menu and HSL schedules. </p>
+        <p class="text-center">We hope you enjoy this app ❤️</p>
 
-      </article>
+      </div>
     </div>
-    <footer>Arcada Navigator v1.0.1</footer>
+    <footer><i>Arcada Navigator v1.0.1</i></footer>
   </div>
 </template>
 
@@ -46,6 +47,37 @@ methods: {
 p {
   margin-top: 30px;
   text-align: left;
+  font-size: 27px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  color: rgb(101, 101, 101);
+}
+
+.center-div
+{
+  margin: 0 auto;
+  max-width: 900px;
+  height: 100px;
+  border-radius: 3px;
+}
+
+@media screen and (max-width: 600px) {
+   .center-div {
+        margin: 20px;
+        max-width: 700px;
+        height: 100px;
+        border-radius: 3px;
+   } 
+}
+
+h2 {
+  font-size: 40px;
+  font-weight: 700;
 }
 
 </style>

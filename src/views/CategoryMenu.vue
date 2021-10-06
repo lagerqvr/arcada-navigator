@@ -23,7 +23,7 @@
           :icon="category.icon"
           :route="category.route"
         />
-      </div>
+      </div> 
     </transition>
   </div>
 </template>
