@@ -1,18 +1,4 @@
 <template>
-  <!-- <div>
-  <AppReturnButton/>
-  <div class="weather-container">
-      <div class="current-weather">
-        <p class="cityName">City: Helsinki</p>
-        <p class="country">Country: Finland</p>
-        <p class="temperature">Temperature: {{ info.temp }}°C</p>
-        <p class="humidity">Humidity: {{ info.humidity }}%</p>
-        <p class="lowTemp">Lowest temperature: {{ info.temp_min }}°C</p>
-        <p class="highTemp">Highest temperature: {{ info.temp_max }}°C</p>
-      </div>
-  </div>
-</div> -->
-
   <div class="weather-app">
     <AppReturnButton />
     <div class="main-app">
@@ -39,7 +25,9 @@
         </div>
       </div>
       <div class="middle-side">
-        <div class="temperature-container">{{ info.main.temp | truncate(2, '') }}</div>
+        <div class="temperature-container">
+          {{ info.main.temp | truncate(2, "") }}
+        </div>
         <div class="temperature-right">
           <div class="temperature-scale">°C</div>
           <div class="temperature-high">
@@ -55,19 +43,17 @@
       <div class="bottom-side">
         <div class="location">Helsinki, Fi</div>
         <div class="weather-description">cloudy</div>
-        <img class="weather-condition" src="" width="300px" />
+        <img id="weather-condition" src="../assets/animated/rainy-1.svg" width="300px" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-
 import axios from "axios";
 import AppReturnButton from "../components/AppReturnButton.vue";
 import $ from "jquery";
 export default {
-
   components: {
     AppReturnButton,
   },
@@ -78,15 +64,15 @@ export default {
   created() {
     this.getWeather();
   },
-      filters: {
-        truncate: function (text, length, suffix) {
-            if (text.length > length) {
-                return text.substring(0, length) + suffix;
-            } else {
-                return text;
-            }
-        },
+  filters: {
+    truncate: function (text, length, suffix) {
+      if (text.length > length) {
+        return text.substring(0, length) + suffix;
+      } else {
+        return text;
+      }
     },
+  },
   methods: {
     getWeather() {
       axios
@@ -95,28 +81,37 @@ export default {
         )
         .then((response) => {
           this.info = response.data;
+
+          if (response.data.weather[0].main == "Thunderstorm") {
+            $("weather-condition").attr(
+              "src",
+              "../assets/animated/thunder.svg"
+            );
+          }
+          if (response.data.weather[0].main == "Rain") {
+            $("weather-condition").attr(
+              "src",
+              "../assets/animated/rainy-1.svg"
+            );
+          }
+          if (response.data.weather[0].main == "Snow") {
+            $("weather-condition").attr(
+              "src",
+              "../assets/animated/snowy-1.svg"
+            );
+          }
+          if (response.data.weather[0].main == "Clear") {
+            $("weather-condition").attr("src", "../assets/animated/day.svg");
+          }
+          if (response.data.weather[0].main == "Clouds") {
+            console.log("if funkar");
+            $("#weather-condition").attr(
+              "src",
+              "../assets/animated/cloudy-day-1.svg"
+            );
+          }
           console.log(response.data);
         });
-
-      if (this.info.weather[0].main == "Thunderstorm") {
-        $("weather-condition").attr("src", "../assets/animated/thunder.svg");
-      }
-      if (this.info.weather[0].main == "Rain") {
-        $("weather-condition").attr("src", "../assets/animated/rainy-1.svg");
-      }
-      if (this.info.weather[0].main == "Snow") {
-        $("weather-condition").attr("src", "../assets/animated/snowy-1.svg");
-      }
-      if (this.info.weather[0].main == "Clear") {
-        $("weather-condition").attr("src", "../assets/animated/day.svg");
-      }
-      if (this.info.weather[0].main == "Clouds") {
-        console.log("if funkar");
-        $("weather-condition").attr(
-          "src",
-          "../assets/animated/clody-day-1.svg"
-        );
-      }
     },
   },
 };
@@ -185,15 +180,4 @@ export default {
 .temperature-low {
   width: 30px;
 }
-
-/* .weather-container {
-  background-color: lightblue;
-}
-
-.current-weather {
-  display: inline-block;
-  background-color: grey;
-  width: 350px;
-  height: 400px;
-} */
 </style>
