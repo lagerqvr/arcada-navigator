@@ -7,14 +7,28 @@
       src="../assets/arcada_logo.png"
       height="200px"
     />
-    <div class="timeTabel-container">
-      <div v-for="post in posts" v-bind:key="post.$.line + post.$.time">
-        <table class="flex-container">
-          <p class="destination">{{ post.$.destination }}</p>
-          <p class="line">{{ post.$.line }}</p>
-          <p class="time">{{ formateTime(post.$.time) }}</p>
-          <p class="type">{{ post.$.type }}</p>
+    <div class="main-container">
+      <div>
+        <table class="flex-container title">
+          <p class="title destination">Destination</p>
+          <p class="title line">Line</p>
+          <p class="title time">Time</p>
+          <p class="title type">Type</p>
+          <p class="title destination">Destination</p>
+          <p class="title line">Line</p>
+          <p class="title time">Time</p>
+          <p class="title type">Type</p>
         </table>
+        <div class="timeTabel-container">
+          <div v-for="post in posts" v-bind:key="post.$.line + post.$.time">
+            <table class="flex-container">
+              <p class="destination">{{ post.$.destination }}</p>
+              <p class="line">{{ post.$.line }}</p>
+              <p class="time">{{ formateTime(post.$.time) + ' min' }}</p>
+              <p class="type">{{ post.$.type }}</p>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -70,24 +84,56 @@ export default {
 };
 </script>
 <style scoped>
+.main-container {
+  display: flex;
+  justify-content: center;
+}
+
 .timeTabel-container {
-  max-width: 600px;
+  max-width: 1200px;
   overflow: hidden;
   display: flex;
-  max-height: 250px;
+  max-height: 500px;
   flex-wrap: wrap;
   flex-direction: column;
+  font-size: 1.5rem;
+  color: #555;
+}
+
+.title.destination {
+  max-width: 22.5%;
+}
+
+.title.line {
+  max-width: 10%;
+}
+
+.title.time {
+  max-width: 10%;
+}
+
+.title.type {
+  max-width: 8.5%;
+}
+
+.flex-container.title {
+  width: 1200px;
+  background-color: blue;
+  color: lightgreen;
+  font-size: 1.6rem;
+  justify-content: start;
 }
 
 .flex-container {
   justify-content: space-between;
-  width: 300px;
-  height: 25px;
+  width: 600px;
+  height: 50px;
   margin: 0px;
   display: flex;
-  border: solid 2px;
+  border: solid 1px;
   background-color: lightblue;
 }
+
 p {
   text-align: left;
   padding: 0px;
@@ -106,5 +152,6 @@ p {
 }
 .type {
   width: 15%;
+  text-transform: capitalize;
 }
 </style>
