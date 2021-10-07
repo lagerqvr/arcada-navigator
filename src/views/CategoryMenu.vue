@@ -23,7 +23,7 @@
           :icon="category.icon"
           :route="category.route"
         />
-      </div> 
+      </div>
     </transition>
   </div>
 </template>
@@ -48,12 +48,20 @@ export default {
   data: function() {
     return {
       categories: [],
-      showWelcome: true,
+      showWelcome: false,
       language: 'sv',
     };
   },
   mounted: function() {
     this.categories = categories; // Lagar categories.json datan till categories arrayn.
+  },
+  beforeRouteEnter(to, from, next) {
+    next((vm) => {
+      if (!from.name) {
+        vm.showWelcome = true;
+      }
+      console.log(from);
+    });
   },
 };
 </script>

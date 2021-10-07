@@ -8,57 +8,27 @@
         :style="{ top: `${indicatorPosition}%` }"
       />
       <div class="floor">
-        <p
-          id="f5"
-          :style="{
-            transform: `scale(${calculateNumberSize(6)})`,
-            transition: transitionTime,
-          }"
-        >
+        <p ref="5">
           5
         </p>
       </div>
       <div class="floor">
-        <p
-          id="f4"
-          :style="{
-            transform: `scale(${calculateNumberSize(26)}`,
-            transition: transitionTime,
-          }"
-        >
+        <p ref="4">
           4
         </p>
       </div>
       <div class="floor">
-        <p
-          id="f3"
-          :style="{
-            transform: `scale(${calculateNumberSize(46)})`,
-            transition: transitionTime,
-          }"
-        >
+        <p ref="3">
           3
         </p>
       </div>
       <div class="floor">
-        <p
-          id="f2"
-          :style="{
-            transform: `scale(${calculateNumberSize(66)})`,
-            transition: transitionTime,
-          }"
-        >
+        <p ref="2" class="active">
           2
         </p>
       </div>
       <div class="floor">
-        <p
-          id="f1"
-          :style="{
-            transform: `scale(${calculateNumberSize(86)})`,
-            transition: transitionTime,
-          }"
-        >
+        <p ref="1">
           1
         </p>
       </div>
@@ -69,40 +39,25 @@
 <script>
 export default {
   methods: {
-    calculateNumberSize(number) {
-      return 155 - Math.abs(this.transitionalValue - number) + '%';
-    },
     toFloor(floor) {
-      this.indicatorPosition = 86 - (floor - 1) * 20;
-
-      this.floor = floor - 2;
-      this.transitionTime = 0.5 / this.floor + 's';
-
       clearTimeout(this.timer);
-      // this.transitionTime = 3 / this.floor + 's';
-      this.animate();
-      console.log(3000 / this.floor || 1);
-    },
-    animate() {
-      let i = this.transitionalValue;
-      let t = this.indicatorPosition;
-      // console.log(i, t);
-      // console.log('time ' + 3000 / this.floor);
-      if (i != t) {
-        this.transitionalValue += i > t ? -5 : 5;
-        this.timer = setTimeout(() => {
-          this.animate();
-        }, 500 / this.floor);
+      this.indicatorPosition = 85 - (floor - 1) * 20;
+      for (let i = 1; i < 6; i++) {
+        if (i != floor) {
+          this.$refs[i].className = '';
+        }
       }
+      this.timer = setTimeout(() => {
+        this.$refs[floor].className = 'active';
+      }, 1700);
     },
   },
   data() {
     return {
-      indicatorPosition: 66,
-      transitionalValue: 66,
+      indicatorPosition: 65,
       transitionTime: '2s',
       timer: null,
-      floor: 0,
+      // floor: 0,
     };
   },
 };
@@ -135,8 +90,18 @@ export default {
 .floor {
   display: block;
   width: 100%;
-  margin: 1px 0px;
-  font-size: 1.4rem;
+  margin: -5px 0;
+  font-size: 1.8rem;
+}
+
+.floor p {
+  transition: 1s;
+}
+
+.floor > .active {
+  transform: scale(1.2);
+  color: red;
+  font-weight: bold;
 }
 
 .floors-container p {

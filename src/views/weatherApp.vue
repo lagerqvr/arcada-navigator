@@ -26,7 +26,7 @@
       </div>
       <div class="middle-side">
         <div class="temperature-container">
-          {{ info.main.temp | truncate(2, "") }}
+          {{ info.main.temp }}
         </div>
         <div class="temperature-right">
           <div class="temperature-scale">°C</div>
@@ -42,8 +42,8 @@
       </div>
       <div class="bottom-side">
         <div class="location">Helsinki, Fi</div>
-        <div class="weather-description">cloudy</div>
-        <img id="weather-condition" src="../assets/animated/rainy-1.svg" width="300px" />
+        <div class="weather-description">{{ info.weather[0].main }}</div>
+        <img id="weather-condition" :src="weatherPicture" width="300px" />
       </div>
     </div>
   </div>
@@ -52,7 +52,6 @@
 <script>
 import axios from "axios";
 import AppReturnButton from "../components/AppReturnButton.vue";
-import $ from "jquery";
 export default {
   components: {
     AppReturnButton,
@@ -60,18 +59,10 @@ export default {
 
   data: () => ({
     info: [],
+    weatherPicture: null,
   }),
   created() {
     this.getWeather();
-  },
-  filters: {
-    truncate: function (text, length, suffix) {
-      if (text.length > length) {
-        return text.substring(0, length) + suffix;
-      } else {
-        return text;
-      }
-    },
   },
   methods: {
     getWeather() {
@@ -82,33 +73,25 @@ export default {
         .then((response) => {
           this.info = response.data;
 
+          this.info.main.temp = response.data.main.temp.toFixed(1);
+
           if (response.data.weather[0].main == "Thunderstorm") {
-            $("weather-condition").attr(
-              "src",
-              "../assets/animated/thunder.svg"
-            );
+            this.weatherPicture = require("../assets/animated/thunder.svg");
           }
           if (response.data.weather[0].main == "Rain") {
-            $("weather-condition").attr(
-              "src",
-              "../assets/animated/rainy-1.svg"
-            );
+            this.weatherPicture = require("../assets/animated/rainy-1.svg");
+          }
+          if (response.data.weather[0].main == "Drizzle") {
+            this.weatherPicture = require("../assets/animated/rainy-1.svg");
           }
           if (response.data.weather[0].main == "Snow") {
-            $("weather-condition").attr(
-              "src",
-              "../assets/animated/snowy-1.svg"
-            );
+            this.weatherPicture = require("../assets/animated/snowy-1.svg");
           }
           if (response.data.weather[0].main == "Clear") {
-            $("weather-condition").attr("src", "../assets/animated/day.svg");
+            this.weatherPicture = require("../assets/animated/day.svg");
           }
           if (response.data.weather[0].main == "Clouds") {
-            console.log("if funkar");
-            $("#weather-condition").attr(
-              "src",
-              "../assets/animated/cloudy-day-1.svg"
-            );
+            this.weatherPicture = require("../assets/animated/cloudy-day-1.svg");
           }
           console.log(response.data);
         });
