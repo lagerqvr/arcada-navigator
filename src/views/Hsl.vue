@@ -30,7 +30,9 @@
           </div>
         </div>
         <table class="flex-container bottom">
-          <p class="title slogan"><i>"Parhaat matkat tehdään yhdessä" </i> -HSL</p>
+          <p class="title slogan">
+            <i>"Parhaat matkat tehdään yhdessä" </i> -HSL
+          </p>
         </table>
       </div>
     </div>
@@ -152,6 +154,7 @@ export default {
   background-color: #a43cb7;
   color: rgb(228, 228, 228);
   padding: 5px;
+  transition: 1s;
 }
 
 p {
@@ -159,6 +162,7 @@ p {
   padding: 0px;
   margin: auto 0;
   display: block;
+  transition: 1s;
 }
 .destination {
   padding-left: 4px;
@@ -174,7 +178,7 @@ p {
   width: 15%;
   text-transform: capitalize;
 }
-.slogan{
+.slogan {
   text-align: center;
 }
 footer {
