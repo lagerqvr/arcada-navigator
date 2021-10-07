@@ -4,6 +4,7 @@
     <Sidemenu @to-room="navigateToRoom" />
     <div class="map-container">
       <MapFloorIndicator ref="elevator" />
+      <div class="room-name">{{ roomName }}</div>
       <transition
         mode="out-in"
         enter-active-class="animate__animated animate__fadeIn"
@@ -175,6 +176,7 @@ export default {
       let floorNr = room.charAt(1);
       let floor;
       this.resetPath();
+      this.roomName = room;
 
       if ((block == 'F' && floorNr <= 2) || block == 'T') {
         floor = paths['floor2'];
@@ -212,14 +214,13 @@ export default {
       this.animationDuration[0] = 1500;
       clearTimeout(this.elevatorTimer);
       clearTimeout(this.floorTimer);
-      this.$refs.elevator.toFloor(2, '0.3s');
+      this.$refs.elevator.toFloor(2);
     },
   },
   mounted() {
     this.pathAnimation = new ProgressBar.Path('#path', {
       duration: 3000,
     });
-    // this.navigateToRoom('F3');
   },
   data: function() {
     return {
@@ -237,12 +238,20 @@ export default {
       elevatorTimer: null,
       floorTimer: null,
       animationDuration: [1500],
+      roomName: '',
     };
   },
 };
 </script>
 
 <style scoped>
+.room-name {
+  position: absolute;
+  top: -10%;
+  left: 5%;
+  font-size: 3rem;
+}
+
 .map-container {
   position: absolute;
   display: inline-block;
