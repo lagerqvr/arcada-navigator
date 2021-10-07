@@ -68,7 +68,7 @@ export default {
 .border-container {
   border-radius: 30px;
   padding-bottom: 6%;
-  margin: 5% 5%;
+  margin: 3% 5%;
   transition: 1.5s;
 }
 .border-container.active {

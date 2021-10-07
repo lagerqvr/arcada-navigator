@@ -41,5 +41,6 @@ export default {
 p {
   font-size: 1.6rem;
   margin: 0;
+  margin-top: 3px;
 }
 </style>

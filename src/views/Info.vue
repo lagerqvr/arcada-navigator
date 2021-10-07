@@ -73,6 +73,10 @@ footer {
         height: 100px;
         border-radius: 3px;
    } 
+
+   #logo {
+     margin: 0;
+   }
 }
 
 h2 {

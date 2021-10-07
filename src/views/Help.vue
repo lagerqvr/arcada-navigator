@@ -5,7 +5,6 @@
       id="logo"
       @click="$router.push('/')"
       src="../assets/arcada_logo.png"
-      height="200px"
     />
 
     <h2 class="text-center">We ❤️ feedback!</h2>
@@ -113,6 +112,7 @@ methods: {
 
 #logo {
   margin: -30px;
+  height: 200px;
 }
 
 .feedback {
@@ -158,6 +158,19 @@ p {
         height: 100px;
         border-radius: 3px;
    } 
+
+   #logo {
+     margin: 0;
+     width: auto;
+     max-height: 200px;
+   }
+
+   .description {
+        margin: 20px;
+        margin-bottom: 35px;
+        max-width: 700px;
+        border-radius: 3px;
+   }
 }
 
 .description {

@@ -33,7 +33,7 @@ export default {
   margin: auto;
   background-color: #812990;
   width: 900px;
-  height: 500px;
+  height: 410px;
   padding: 20px;
   border-radius: 10px;
 }
