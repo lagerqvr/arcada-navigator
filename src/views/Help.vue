@@ -4,11 +4,10 @@
 <img
       id="logo"
       @click="$router.push('/')"
-      src="../assets/arcada_logo.png"
-      height="200px"
+      src="../assets/arcada_logo_v2.png"
     />
 
-    <h2 class="text-center">We ❤️ feedback!</h2>
+    <h2 class="text-center">We<span class="heart">❤️</span>feedback!</h2>
     <h5 class="description">Have a question or suggestion? Want to let us know about a bug? Contact us.</h5>
 
     <div>
@@ -57,6 +56,7 @@
     </b-form>
     </article>
   </div>
+  <footer><i>Arcada Navigator v1.0.1</i></footer>
 </div>
   
 </template>
@@ -108,11 +108,13 @@ methods: {
 <style scoped>
 
 * {
-    font-weight: 300;
+    font-weight: 400;
 }
 
 #logo {
   margin: -30px;
+  height: 200px;
+  margin-bottom: 20px;
 }
 
 .feedback {
@@ -137,12 +139,6 @@ p {
     margin: 10px;
 }
 
-.subtext {
-    width: 400px;
-    text-align: left;
-    margin: 0px 680px;
-}
-
 .center-div
 {
   margin: 0 auto;
@@ -158,10 +154,88 @@ p {
         height: 100px;
         border-radius: 3px;
    } 
+
+   #logo {
+     margin: 0;
+     width: auto;
+     max-height: 200px;
+   }
+
+   .description {
+        margin: 20px;
+        margin-bottom: 35px;
+        max-width: 700px;
+        border-radius: 3px;
+   }
 }
 
 .description {
     margin-top: 25px;
+}
+
+.heart {
+   border-radius:11px 0;
+   font-size:30px;
+   line-height:21px;
+   text-align:center;
+   padding:9px;
+   width:201px;
+   -webkit-animation:heart-animation 1s infinite;
+   -moz-animation:heart-animation 1s infinite;
+   -o-animation:heart-animation 1s infinite;
+   animation:heart-animation 1s infinite;
+}
+
+@webkit-keyframes heart-animation  {
+   0%, 100% {
+      font-size:22px;
+   }
+   
+   10% {
+      font-size:30px;
+   }
+
+}
+
+@-moz-keyframes heart-animation  {
+   0%, 100% {
+      font-size:22px;
+   }
+   
+   50% {
+      font-size:30px;
+   }
+
+}
+
+@-o-keyframes heart-animation  {
+   0%, 100% {
+      font-size:22px;
+   }
+   
+   50% {
+      font-size:30px;
+   }
+
+}
+
+@keyframes heart-animation  {
+   0%, 100% {
+      font-size:22px;
+   }
+   
+   50% {
+      font-size:30px;
+   }
+
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  color: rgb(101, 101, 101);
 }
 
 </style>

@@ -4,7 +4,7 @@
     <img
       id="logo"
       @click="$router.push('/')"
-      src="../assets/arcada_logo.png"
+      src="../assets/arcada_logo_v2.png"
       height="200px"
     />
     <div class="main-container">
@@ -29,8 +29,12 @@
             </table>
           </div>
         </div>
+        <table class="flex-container bottom">
+          <p class="title slogan"><i>"Parhaat matkat tehdään yhdessä" </i> -HSL</p>
+        </table>
       </div>
     </div>
+    <footer><i>Arcada Navigator v1.0.1</i></footer>
   </div>
 </template>
 
@@ -118,10 +122,24 @@ export default {
 
 .flex-container.title {
   width: 1200px;
-  background-color: blue;
-  color: lightgreen;
+  background-color: #812990;
+  color: rgb(228, 228, 228);
   font-size: 1.6rem;
   justify-content: start;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  padding: 5px;
+}
+
+.flex-container.bottom {
+  width: 1200px;
+  background-color: #812990;
+  color: rgb(228, 228, 228);
+  font-size: 1.6rem;
+  justify-content: center;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  padding: 5px;
 }
 
 .flex-container {
@@ -131,7 +149,9 @@ export default {
   margin: 0px;
   display: flex;
   border: solid 1px;
-  background-color: lightblue;
+  background-color: #a43cb7;
+  color: rgb(228, 228, 228);
+  padding: 5px;
 }
 
 p {
@@ -153,5 +173,15 @@ p {
 .type {
   width: 15%;
   text-transform: capitalize;
+}
+.slogan{
+  text-align: center;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  color: rgb(101, 101, 101);
 }
 </style>
