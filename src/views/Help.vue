@@ -139,12 +139,6 @@ p {
     margin: 10px;
 }
 
-.subtext {
-    width: 400px;
-    text-align: left;
-    margin: 0px 680px;
-}
-
 .center-div
 {
   margin: 0 auto;

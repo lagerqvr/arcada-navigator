@@ -30,6 +30,7 @@
           </div>
         </div>
         <table class="flex-container bottom">
+          <p class="title slogan"><i>"Parhaat matkat tehdään yhdessä" </i> -HSL</p>
         </table>
       </div>
     </div>
@@ -135,7 +136,7 @@ export default {
   background-color: #812990;
   color: rgb(228, 228, 228);
   font-size: 1.6rem;
-  justify-content: start;
+  justify-content: center;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   padding: 5px;
@@ -172,6 +173,9 @@ p {
 .type {
   width: 15%;
   text-transform: capitalize;
+}
+.slogan{
+  text-align: center;
 }
 footer {
   position: absolute;
