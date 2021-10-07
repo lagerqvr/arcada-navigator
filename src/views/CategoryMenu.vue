@@ -60,7 +60,6 @@ export default {
       if (!from.name) {
         vm.showWelcome = true;
       }
-      console.log(from);
     });
   },
 };
