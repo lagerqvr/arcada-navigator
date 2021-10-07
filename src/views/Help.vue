@@ -4,7 +4,7 @@
 <img
       id="logo"
       @click="$router.push('/')"
-      src="../assets/arcada_logo.png"
+      src="../assets/arcada_logo_v2.png"
     />
 
     <h2 class="text-center">We<span class="heart">❤️</span>feedback!</h2>

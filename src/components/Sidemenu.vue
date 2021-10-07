@@ -1,6 +1,6 @@
 <template>
   <div class="sidemenu">
-    <img src="../assets/arcada_logo.png" />
+    <img src="../assets/arcada_logo_v2.png" />
     <div class="line"></div>
     <div class="item block">
       <p>Block</p>
