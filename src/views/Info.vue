@@ -38,6 +38,7 @@ methods: {
 
 #logo {
   margin: -30px;
+  margin-bottom: 20px;
 }
 
 .textbox {

@@ -56,6 +56,7 @@
     </b-form>
     </article>
   </div>
+  <footer><i>Arcada Navigator v1.0.1</i></footer>
 </div>
   
 </template>
@@ -107,12 +108,13 @@ methods: {
 <style scoped>
 
 * {
-    font-weight: 300;
+    font-weight: 400;
 }
 
 #logo {
   margin: -30px;
   height: 200px;
+  margin-bottom: 20px;
 }
 
 .feedback {
@@ -232,6 +234,14 @@ p {
       font-size:30px;
    }
 
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  color: rgb(101, 101, 101);
 }
 
 </style>
