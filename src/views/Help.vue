@@ -7,7 +7,7 @@
       src="../assets/arcada_logo.png"
     />
 
-    <h2 class="text-center">We ❤️ feedback!</h2>
+    <h2 class="text-center">We<span class="heart">❤️</span>feedback!</h2>
     <h5 class="description">Have a question or suggestion? Want to let us know about a bug? Contact us.</h5>
 
     <div>
@@ -175,6 +175,63 @@ p {
 
 .description {
     margin-top: 25px;
+}
+
+.heart {
+   border-radius:11px 0;
+   font-size:30px;
+   line-height:21px;
+   text-align:center;
+   padding:9px;
+   width:201px;
+   -webkit-animation:heart-animation 1s infinite;
+   -moz-animation:heart-animation 1s infinite;
+   -o-animation:heart-animation 1s infinite;
+   animation:heart-animation 1s infinite;
+}
+
+@webkit-keyframes heart-animation  {
+   0%, 100% {
+      font-size:22px;
+   }
+   
+   10% {
+      font-size:30px;
+   }
+
+}
+
+@-moz-keyframes heart-animation  {
+   0%, 100% {
+      font-size:22px;
+   }
+   
+   50% {
+      font-size:30px;
+   }
+
+}
+
+@-o-keyframes heart-animation  {
+   0%, 100% {
+      font-size:22px;
+   }
+   
+   50% {
+      font-size:30px;
+   }
+
+}
+
+@keyframes heart-animation  {
+   0%, 100% {
+      font-size:22px;
+   }
+   
+   50% {
+      font-size:30px;
+   }
+
 }
 
 </style>
