@@ -1,5 +1,5 @@
 <template>
-  <a class="item" @click="handleClick" :class="{ active: active }">
+  <a class="item" @click="$emit('to-room', this.name)">
     <p>{{ name }}</p>
     <p class="info" v-if="info">{{ '/' + info }}</p>
   </a>
@@ -10,18 +10,6 @@ export default {
   props: {
     name: String,
     info: String,
-  },
-  data() {
-    return {
-      active: false,
-    };
-  },
-  methods: {
-    handleClick() {
-      this.$emit('to-room', this.name);
-      this.active = true;
-      // console.log((e.currentTarget.className += ' active'));
-    },
   },
 };
 </script>
@@ -42,7 +30,7 @@ a {
   color: white;
 }
 
-.active:hover .info {
+.item:hover .info {
   color: #ccc;
 }
 
