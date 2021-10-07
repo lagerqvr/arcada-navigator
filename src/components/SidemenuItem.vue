@@ -1,5 +1,5 @@
 <template>
-  <a class="item" @click="$emit('to-room', this.name)">
+  <a class="item" @click="$emit('to-room', name)">
     <p>{{ name }}</p>
     <p class="info" v-if="info">{{ '/' + info }}</p>
   </a>
