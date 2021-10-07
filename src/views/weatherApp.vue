@@ -18,7 +18,8 @@
     <div class="main-app">
       <div class="top-side">
         <div class="cloudiness">
-          <img src="../assets/animated/day.svg" /> <span>90%</span>
+          <img src="../assets/animated/cloudy.svg" />
+          <span>{{ info.clouds.all }}%</span>
         </div>
         <div class="wind-speed">
           <img
@@ -26,7 +27,7 @@
             src="../assets/animated/wind.svg"
             width="45px"
           />
-          <span>1.34 m/s</span>
+          <span>{{ info.wind.speed }} m/s</span>
         </div>
         <div class="humidity">
           <img
@@ -34,23 +35,39 @@
             src="../assets/animated/humidity.svg"
             width="45px"
           />
-          <span>80%</span>
+          <span>{{ info.main.humidity }}%</span>
         </div>
       </div>
       <div class="middle-side">
-        <div class="temperature-container"></div>
-        <div class="temperature">10</div>
+        <div class="temperature-container">{{ info.main.temp | truncate(2, '') }}</div>
+        <div class="temperature-right">
+          <div class="temperature-scale">°C</div>
+          <div class="temperature-high">
+            <img src="../assets/animated/up-arrow.svg" />
+            <span>{{ info.main.temp_max }}°C</span>
+          </div>
+          <div class="temperature-low">
+            <img src="../assets/animated/down-arrow.svg" />
+            <span>{{ info.main.temp_min }}°C</span>
+          </div>
+        </div>
       </div>
-      <div class="bottom-side"></div>
+      <div class="bottom-side">
+        <div class="location">Helsinki, Fi</div>
+        <div class="weather-description">cloudy</div>
+        <img class="weather-condition" src="" width="300px" />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+
 import axios from "axios";
 import AppReturnButton from "../components/AppReturnButton.vue";
-
+import $ from "jquery";
 export default {
+
   components: {
     AppReturnButton,
   },
@@ -61,7 +78,15 @@ export default {
   created() {
     this.getWeather();
   },
-
+      filters: {
+        truncate: function (text, length, suffix) {
+            if (text.length > length) {
+                return text.substring(0, length) + suffix;
+            } else {
+                return text;
+            }
+        },
+    },
   methods: {
     getWeather() {
       axios
@@ -69,10 +94,29 @@ export default {
           `https://api.openweathermap.org/data/2.5/weather?q=helsinki&appid=a4061165de10b2d44ee5832fd238a336&units=metric`
         )
         .then((response) => {
-          this.info = response.data.main;
-          console.log("hej");
+          this.info = response.data;
           console.log(response.data);
         });
+
+      if (this.info.weather[0].main == "Thunderstorm") {
+        $("weather-condition").attr("src", "../assets/animated/thunder.svg");
+      }
+      if (this.info.weather[0].main == "Rain") {
+        $("weather-condition").attr("src", "../assets/animated/rainy-1.svg");
+      }
+      if (this.info.weather[0].main == "Snow") {
+        $("weather-condition").attr("src", "../assets/animated/snowy-1.svg");
+      }
+      if (this.info.weather[0].main == "Clear") {
+        $("weather-condition").attr("src", "../assets/animated/day.svg");
+      }
+      if (this.info.weather[0].main == "Clouds") {
+        console.log("if funkar");
+        $("weather-condition").attr(
+          "src",
+          "../assets/animated/clody-day-1.svg"
+        );
+      }
     },
   },
 };
@@ -85,9 +129,11 @@ export default {
   -ms-flex-pack: center;
   justify-content: center;
   align-items: center;
+  background-color: rgb(124, 179, 231);
 }
 .main-app {
   background-color: lightblue;
+  box-shadow: 0 19px 38px rgb(0 0 0 / 30%), 0 15px 12px rgb(0 0 0 / 22%);
   width: 330px;
   height: 600px;
   border-radius: 5px;
@@ -95,8 +141,8 @@ export default {
   background-position: 50%;
   background-size: cover;
   flex-direction: column;
-  /* justify-content: space-around; */
   align-items: center;
+  background-image: url("../assets/animated/weather-background.jpg");
 }
 .top-side {
   width: 100%;
@@ -120,7 +166,26 @@ export default {
 }
 .temperature-container {
   display: block;
+  font-size: 7em;
 }
+
+.temperature-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5px;
+}
+.temperature-scale {
+  padding-top: 0px;
+  font-size: 2em;
+}
+.temperature-high {
+  width: 30px;
+}
+.temperature-low {
+  width: 30px;
+}
+
 /* .weather-container {
   background-color: lightblue;
 }
