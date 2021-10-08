@@ -5,7 +5,7 @@ import Directions from "../views/Directions.vue";
 import Hsl from "../views/Hsl.vue";
 import Info from "../views/Info.vue";
 import Help from "../views/Help.vue";
-import WeatherApp from "../views/weatherApp.vue"
+import WeatherApp from "../views/WeatherApp.vue"
 
 Vue.use(VueRouter);
 
@@ -40,8 +40,8 @@ const routes = [
     component: Help,
   },
   {
-    path: "/weatherApp",
-    name: "WeaherApp",
+    path: "/WeatherApp",
+    name: "WeatherApp",
     component: WeatherApp,
   },
 ];
