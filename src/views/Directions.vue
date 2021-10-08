@@ -103,12 +103,27 @@
           fill="#444444"
           d="M8 4c-2.2 0-4 1.8-4 4s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4z"
         />
-        <path
+        <!-- <path
           class="outer"
           fill="#444444"
           d="M8 1c3.9 0 7 3.1 7 7s-3.1 7-7 7-7-3.1-7-7 3.1-7 7-7zM8 0c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8v0z"
-        />
+        /> -->
       </svg>
+      <div
+        class="animated-circle"
+        style="animation-delay: 0s"
+        v-show="currentFloor == 2"
+      />
+      <div
+        class="animated-circle"
+        style="animation-delay: -1s"
+        v-show="currentFloor == 2"
+      />
+      <div
+        class="animated-circle"
+        style="animation-delay: -2s"
+        v-show="currentFloor == 2"
+      />
     </div>
   </div>
 </template>
@@ -313,6 +328,29 @@ svg {
   width: 2.75%;
   top: 54.1%;
   left: 74%;
+  z-index: 1;
+}
+
+.animated-circle {
+  position: absolute;
+  top: 53.1%;
+  left: 73.383%;
+  width: 4%;
+  height: 6%;
+  border: 20px solid #646464;
+  border-radius: 50%;
+  animation: scaleIn 4s infinite cubic-bezier(0.36, 0.11, 0.89, 0.32);
   z-index: 0;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.4, 0.4);
+    opacity: 0.5;
+  }
+  to {
+    transform: scale(1.1, 1.1);
+    opacity: 0;
+  }
 }
 </style>
