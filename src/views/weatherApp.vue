@@ -5,7 +5,7 @@
       <div class="top-side">
         <div class="cloudiness">
           <img src="../assets/animated/cloudy.svg" />
-          <span>{{ info.clouds.all }}%</span>
+          <span v-if="info.clouds">{{ info.clouds.all }}%</span>
         </div>
         <div class="wind-speed">
           <img
@@ -13,7 +13,7 @@
             src="../assets/animated/wind.svg"
             width="45px"
           />
-          <span>{{ info.wind.speed }} m/s</span>
+          <span v-if="info.clouds">{{ info.wind.speed }} m/s</span>
         </div>
         <div class="humidity">
           <img
@@ -21,28 +21,30 @@
             src="../assets/animated/humidity.svg"
             width="45px"
           />
-          <span>{{ info.main.humidity }}%</span>
+          <span v-if="info.clouds">{{ info.main.humidity }}%</span>
         </div>
       </div>
       <div class="middle-side">
-        <div class="temperature-container">
+        <div class="temperature-container" v-if="info.clouds">
           {{ info.main.temp }}
         </div>
         <div class="temperature-right">
           <div class="temperature-scale">°C</div>
           <div class="temperature-high">
             <img src="../assets/animated/up-arrow.svg" />
-            <span>{{ info.main.temp_max }}°C</span>
+            <span v-if="info.clouds">{{ info.main.temp_max }}°C</span>
           </div>
           <div class="temperature-low">
             <img src="../assets/animated/down-arrow.svg" />
-            <span>{{ info.main.temp_min }}°C</span>
+            <span v-if="info.clouds">{{ info.main.temp_min }}°C</span>
           </div>
         </div>
       </div>
       <div class="bottom-side">
         <div class="location">Helsinki, Fi</div>
-        <div class="weather-description">{{ info.weather[0].main }}</div>
+        <div class="weather-description" v-if="info.clouds">
+          {{ info.weather[0].main }}
+        </div>
         <img id="weather-condition" :src="weatherPicture" width="300px" />
       </div>
     </div>
@@ -50,15 +52,15 @@
 </template>
 
 <script>
-import axios from "axios";
-import AppReturnButton from "../components/AppReturnButton.vue";
+import axios from 'axios';
+import AppReturnButton from '../components/AppReturnButton.vue';
 export default {
   components: {
     AppReturnButton,
   },
 
   data: () => ({
-    info: [],
+    info: {},
     weatherPicture: null,
   }),
   created() {
@@ -75,25 +77,25 @@ export default {
 
           this.info.main.temp = response.data.main.temp.toFixed(1);
 
-          if (response.data.weather[0].main == "Thunderstorm") {
-            this.weatherPicture = require("../assets/animated/thunder.svg");
+          if (response.data.weather[0].main == 'Thunderstorm') {
+            this.weatherPicture = require('../assets/animated/thunder.svg');
           }
-          if (response.data.weather[0].main == "Rain") {
-            this.weatherPicture = require("../assets/animated/rainy-1.svg");
+          if (response.data.weather[0].main == 'Rain') {
+            this.weatherPicture = require('../assets/animated/rainy-1.svg');
           }
-          if (response.data.weather[0].main == "Drizzle") {
-            this.weatherPicture = require("../assets/animated/rainy-1.svg");
+          if (response.data.weather[0].main == 'Drizzle') {
+            this.weatherPicture = require('../assets/animated/rainy-1.svg');
           }
-          if (response.data.weather[0].main == "Snow") {
-            this.weatherPicture = require("../assets/animated/snowy-1.svg");
+          if (response.data.weather[0].main == 'Snow') {
+            this.weatherPicture = require('../assets/animated/snowy-1.svg');
           }
-          if (response.data.weather[0].main == "Clear") {
-            this.weatherPicture = require("../assets/animated/day.svg");
+          if (response.data.weather[0].main == 'Clear') {
+            this.weatherPicture = require('../assets/animated/day.svg');
           }
-          if (response.data.weather[0].main == "Clouds") {
-            this.weatherPicture = require("../assets/animated/cloudy-day-1.svg");
+          if (response.data.weather[0].main == 'Clouds') {
+            this.weatherPicture = require('../assets/animated/cloudy-day-1.svg');
           }
-          console.log(response.data);
+          // console.log(response.data);
         });
     },
   },
@@ -120,7 +122,7 @@ export default {
   background-size: cover;
   flex-direction: column;
   align-items: center;
-  background-image: url("../assets/animated/weather-background.jpg");
+  background-image: url('../assets/animated/weather-background.jpg');
 }
 .top-side {
   width: 100%;
