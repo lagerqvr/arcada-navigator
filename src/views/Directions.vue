@@ -161,8 +161,10 @@ export default {
                 }, 1000);
               }, 3000);
             }
-            this.animateMarker = false;
-            if (this.target == 1 && this.showMarker == true) {
+            if (
+              Math.round(this.pathAnimation.value()) >= 0.9 &&
+              this.showMarker == true
+            ) {
               this.animateMarker = true;
             } else {
               this.animateMarker = false;
