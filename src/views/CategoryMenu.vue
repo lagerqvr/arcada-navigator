@@ -83,6 +83,12 @@ export default {
   margin: 4.91% 12%;
 }
 #logo {
-  margin: -30px;
+  margin-bottom: 20px;
+  
+}
+@media screen and (max-height: 850px) {
+    #logo {
+        margin: -30px;
+    }
 }
 </style>
