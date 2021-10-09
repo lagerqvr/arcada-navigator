@@ -27,7 +27,7 @@
     "name": "Lunch",
     "icon": "utensils",
     "color": "#FFC253",
-    "route": null
+    "route": "Lunch"
   },
   {
     "name": "HSL",

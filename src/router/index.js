@@ -4,8 +4,9 @@ import CategoryMenu from "../views/CategoryMenu.vue";
 import Directions from "../views/Directions.vue";
 import Hsl from "../views/Hsl.vue";
 import Info from "../views/Info.vue";
+import Lunch from "../views/Lunch.vue";
 import Help from "../views/Help.vue";
-import WeatherApp from "../views/WeatherApp.vue"
+import WeatherApp from "../views/WeatherApp.vue";
 
 Vue.use(VueRouter);
 
@@ -43,6 +44,11 @@ const routes = [
     path: "/WeatherApp",
     name: "WeatherApp",
     component: WeatherApp,
+  },
+  {
+    path: "/Lunch",
+    name: "Lunch",
+    component: Lunch,
   },
 ];
 
