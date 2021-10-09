@@ -5,7 +5,6 @@
       id="logo"
       @click="$router.push('/')"
       src="../assets/arcada_logo_v2.png"
-      height="200px"
     />
     <div class="main-container">
       <div>
@@ -90,6 +89,11 @@ export default {
 };
 </script>
 <style scoped>
+
+#logo {
+  height: 200px;
+}
+
 .main-container {
   display: flex;
   justify-content: center;
@@ -182,10 +186,19 @@ p {
   text-align: center;
 }
 footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
-  width: 100%;
-  height: 50px;
   color: rgb(101, 101, 101);
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-height: 850px) {
+  footer {
+    display: none;
+  }
+  #logo {
+    height: 150px;
+  }
 }
 </style>

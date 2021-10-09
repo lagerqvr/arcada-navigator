@@ -114,7 +114,7 @@ methods: {
 #logo {
   margin: -30px;
   height: 200px;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 .feedback {
@@ -180,21 +180,9 @@ p {
    text-align:center;
    padding:9px;
    width:201px;
-   -webkit-animation:heart-animation 1s infinite;
    -moz-animation:heart-animation 1s infinite;
    -o-animation:heart-animation 1s infinite;
    animation:heart-animation 1s infinite;
-}
-
-@webkit-keyframes heart-animation  {
-   0%, 100% {
-      font-size:22px;
-   }
-   
-   10% {
-      font-size:30px;
-   }
-
 }
 
 @-moz-keyframes heart-animation  {
@@ -231,11 +219,17 @@ p {
 }
 
 footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
-  width: 100%;
-  height: 50px;
   color: rgb(101, 101, 101);
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-height: 850px) {
+  footer {
+    display: none;
+  }
 }
 
 </style>

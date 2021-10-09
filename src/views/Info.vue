@@ -52,11 +52,11 @@ p {
 }
 
 footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
-  width: 100%;
-  height: 50px;
   color: rgb(101, 101, 101);
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 .center-div
