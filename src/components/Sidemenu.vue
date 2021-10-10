@@ -88,6 +88,7 @@ export default {
   methods: {
     filterByBlock(block) {
       let i = 0;
+      this.rooms = [];
       for (const room in rooms) {
         if (room.charAt(0) == block) {
           this.rooms[i] = { name: room, info: rooms[room].info };
