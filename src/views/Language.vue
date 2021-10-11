@@ -9,7 +9,8 @@
     />
     <div>
       <div class="center-div">
-        <h2>Change language</h2>
+        <h2>Language</h2>
+        <p class="text-center">Change the language to match your preference.</p>
 
         <div class="category-container">
         <CategoryButton
