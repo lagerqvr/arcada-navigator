@@ -11,48 +11,45 @@
       <div class="center-div">
         <h2>Lunch</h2>
         <h3>Monday</h3>
-        <p v-if="info.MenusForDays">{{ info.MenusForDays[0].SetMenus[0].Components[0] }}</p>
-        <p v-if="info.MenusForDays">{{ info.MenusForDays[0].SetMenus[1].Components[0] + ", " + info.MenusForDays[1].SetMenus[1].Components[1] + ", " + info.MenusForDays[0].SetMenus[1].Components[2] }}</p>
+        <div v-for="day in days[0].SetMenus" :key="day.Date">
+          <div v-for="component in day.Components" :key="component">
+            {{ component }}
+          </div>
+        </div>
         <h3>Tuesday</h3>
-        <p v-if="info.MenusForDays">{{ info.MenusForDays[1].SetMenus[0].Components[0] }}</p>
-        <p v-if="info.MenusForDays">{{ info.MenusForDays[1].SetMenus[1].Components[0] + ", " + info.MenusForDays[1].SetMenus[1].Components[1] + ", " + info.MenusForDays[1].SetMenus[1].Components[2] }}</p>
-
-
       </div>
     </div>
     <footer><i>Arcada Navigator v1.0.1</i></footer>
   </div>
 </template>
 
-
 <script>
-import AppReturnButton from "../components/AppReturnButton.vue";
-import axios from "axios";
+import AppReturnButton from '../components/AppReturnButton.vue';
+import axios from 'axios';
 
 export default {
-  components: { 
-     AppReturnButton 
+  components: {
+    AppReturnButton,
   },
   metaInfo: {
-      title: 'Lunch'
-    },
+    title: 'Lunch',
+  },
 
   data: () => ({
-    info: {},
-
+    days: {},
   }),
   created() {
-     this.getLunch()
+    this.getLunch();
   },
   methods: {
-         getLunch() {
+    getLunch() {
       axios
         .get(
           `https://www.foodandco.fi/modules/json/json/Index?costNumber=3003&language=en`
         )
         .then((response) => {
-          this.info = response.data;
-          console.log(response.data);
+          this.days = response.data.MenusForDays;
+          // console.log(this.days);
         });
     },
   },
@@ -116,5 +113,4 @@ h2 {
     height: 150px;
   }
 }
-
 </style>
