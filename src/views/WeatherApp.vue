@@ -72,7 +72,7 @@ export default {
 
   data: () => ({
     info: {},
-    weatherPicture: null,
+    weatherPicture: null, // prop för väder bilden
   }),
   created() {
     this.getWeather();
@@ -84,10 +84,10 @@ export default {
           `https://api.openweathermap.org/data/2.5/weather?q=helsinki&appid=a4061165de10b2d44ee5832fd238a336&units=metric`
         )
         .then((response) => {
-          this.info = response.data;
+          this.info = response.data; // huvud datan från APIn
 
-          this.info.main.temp = response.data.main.temp.toFixed(1);
-
+          this.info.main.temp = response.data.main.temp.toFixed(1); // data för temp formatted så den visar med en decimal
+          // if satser som checkar från APIn va för väder som blir true och därav ändrar svg i appen efter väderförhållandet
           if (response.data.weather[0].main == 'Thunderstorm') {
             this.weatherPicture = require('../assets/animated/thunder.svg');
           }
@@ -106,7 +106,6 @@ export default {
           if (response.data.weather[0].main == 'Clouds') {
             this.weatherPicture = require('../assets/animated/cloudy-day-1.svg');
           }
-          // console.log(response.data);
         });
     },
   },

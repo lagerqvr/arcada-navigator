@@ -82,6 +82,7 @@ export default {
     this.getLunch();
   },
   methods: {
+    // API get metod som tar in datan från URLn
     getLunch() {
       axios
         .get(

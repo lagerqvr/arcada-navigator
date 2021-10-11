@@ -40,9 +40,9 @@
 </template>
 
 <script>
-import axios from 'axios';
-import { parseString } from 'xml2js';
-import AppReturnButton from '../components/AppReturnButton.vue';
+import axios from 'axios'; // Tar in axios för API requests
+import { parseString } from 'xml2js'; // parsar XML data till json
+import AppReturnButton from '../components/AppReturnButton.vue'; 
 
 export default {
   name: 'home',
@@ -54,26 +54,29 @@ export default {
   },
   data: () => ({
     posts: [],
-    polling: null,
+    polling: null, // pollingen för datan
   }),
+  // on create då "appen/komponenten" öppnas
   created() {
     this.fetch();
     this.pollData();
   },
+  // När du stänger ner fliken/komponenten/appen så nollas pollingen så den inte körs i bakgrunden för evigft (one page application = ajaj för presntandan)
   beforeDestroy() {
     clearInterval(this.polling);
   },
   methods: {
     fetch() {
       axios
-        .get('https://famnen.arcada.fi/arbs/infotv/hst.php')
+        .get('https://famnen.arcada.fi/arbs/infotv/hst.php') // API url
         .then((response) => {
-          var xmlData = response.data;
+          var xmlData = response.data; // läser in från APIN till XML data
           parseString(xmlData, (err, results) => {
-            this.posts = results.hst.departure;
+            this.posts = results.hst.departure; // parsar datan till JSON format
           });
         });
     },
+    // funktion för formatering av arrival/departure time
     formateTime(time) {
       var currentTime = new Date();
       var arrivalTime = new Date(time);
@@ -82,7 +85,7 @@ export default {
 
       return remainingMinutes;
     },
-
+    // Poll för att updatera informationen till nära realtid
     pollData() {
       this.polling = setInterval(() => {
         this.fetch();

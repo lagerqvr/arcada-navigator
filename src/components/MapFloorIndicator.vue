@@ -57,7 +57,6 @@ export default {
       indicatorPosition: 65,
       transitionTime: '2s',
       timer: null,
-      // floor: 0,
     };
   },
 };

@@ -95,11 +95,9 @@ export default {
           i++;
         }
       }
-      //console.log(this.rooms);
       this.showBlockView = true;
     },
     handleCircleButton(block) {
-      // console.log(block, event.target.className);
       this.blocks[block] = !this.blocks[block];
       if (!this.blocks[block]) {
         this.showBlockView = false;
@@ -113,7 +111,6 @@ export default {
     },
   },
   created() {
-    //this.filterByBlock('E');
     for (const room in rooms) {
       this.categories[rooms[room].category].rooms[room] = {
         name: room,
@@ -122,7 +119,6 @@ export default {
 
       this.categories[rooms[room].category].name = rooms[room].category;
     }
-    //console.log(this.categories);
   },
   data() {
     return {
