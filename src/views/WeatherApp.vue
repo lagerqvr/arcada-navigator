@@ -3,14 +3,13 @@
     <AppReturnButton />
 
     <div class="main-app">
-    <img
-    
-      id="logo"
-      @click="$router.push('/')"
-      src="../assets/arcada_logo_v2.png"
-      height="200px"
-    />
-    <p class="text-center">The current weather.</p>
+      <img
+        id="logo"
+        @click="$router.push('/')"
+        src="../assets/arcada_logo_v2.png"
+        height="200px"
+      />
+      <p class="text-center">The current weather.</p>
       <div class="top-side">
         <div class="cloudiness">
           <img src="../assets/animated/cloudy.svg" />
@@ -68,8 +67,8 @@ export default {
     AppReturnButton,
   },
   metaInfo: {
-      title: 'Weather'
-    },
+    title: 'Weather',
+  },
 
   data: () => ({
     info: {},
@@ -149,6 +148,11 @@ p {
   flex-direction: row;
   justify-content: space-evenly;
 }
+
+span {
+  font-size: 1.8rem;
+}
+
 .wind-picture {
   margin: 7.5px;
 }
