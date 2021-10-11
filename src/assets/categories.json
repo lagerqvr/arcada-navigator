@@ -45,6 +45,6 @@
     "name": "Change Language",
     "icon": "globe-americas",
     "color": "#00B6AD",
-    "route": null
+    "route": "Language"
   }
 ]

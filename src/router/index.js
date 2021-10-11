@@ -7,6 +7,7 @@ import Info from "../views/Info.vue";
 import Lunch from "../views/Lunch.vue";
 import Help from "../views/Help.vue";
 import WeatherApp from "../views/WeatherApp.vue";
+import Language from "../views/Language.vue";
 
 Vue.use(VueRouter);
 
@@ -49,6 +50,11 @@ const routes = [
     path: "/Lunch",
     name: "Lunch",
     component: Lunch,
+  },
+  {
+    path: "/Language",
+    name: "Language",
+    component: Language,
   },
 ];
 
