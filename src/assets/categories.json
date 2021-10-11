@@ -21,7 +21,7 @@
     "name": "Library",
     "icon": "book",
     "color": "#FF8B57",
-    "route": null
+    "route": "Library"
   },
   {
     "name": "Lunch",
