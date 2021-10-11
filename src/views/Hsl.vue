@@ -46,6 +46,9 @@ import AppReturnButton from '../components/AppReturnButton.vue';
 
 export default {
   name: 'home',
+  metaInfo: {
+      title: 'HSL'
+    },
   components: {
     AppReturnButton,
   },

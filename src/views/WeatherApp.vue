@@ -58,6 +58,9 @@ export default {
   components: {
     AppReturnButton,
   },
+  metaInfo: {
+      title: 'Weather'
+    },
 
   data: () => ({
     info: {},

@@ -142,6 +142,9 @@ export default {
     MapFloorIndicator,
     AppReturnButton,
   },
+  metaInfo: {
+      title: 'Directions'
+    },
   methods: {
     animatePath() {
       // let t = this.target;

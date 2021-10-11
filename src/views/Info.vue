@@ -29,7 +29,10 @@ export default {
       
 methods: {
     
-  }
+  },
+metaInfo: {
+      title: 'Info'
+    },
 }
 
 </script>
