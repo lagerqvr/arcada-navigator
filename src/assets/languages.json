@@ -1,0 +1,21 @@
+[
+    {
+      "name": "English",
+      "icon": "globe-americas",
+      "color": "#B2424E",
+      "route": null
+    },
+    {
+      "name": "Svenska",
+      "icon": "globe-americas",
+      "color": "#FFB85A",
+      "route": null
+    },
+    {
+      "name": "Suomi",
+      "icon": "globe-americas",
+      "color": "#013580",
+      "route": null
+    }
+  ]
+  

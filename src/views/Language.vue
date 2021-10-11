@@ -11,7 +11,16 @@
       <div class="center-div">
         <h2>Change language</h2>
 
-        <p class="text-center">Coming soon!</p>
+        <div class="category-container">
+        <CategoryButton
+          v-for="language in languages"
+          :key="language.name"
+          :name="language.name"
+          :color="language.color"
+          :icon="language.icon"
+          :route="language.route"
+        />
+      </div>
 
       </div>
     </div>
@@ -22,18 +31,61 @@
 
 <script>
 import AppReturnButton from '../components/AppReturnButton.vue';
+import languages from '../assets/languages.json';
+import CategoryButton from '../components/CategoryButton.vue';
 
 export default {
-  components: { AppReturnButton },
-      
-methods: {
-    
-  }
-}
+  name: 'LanguageMenu',
+  components: {
+    CategoryButton,
+    AppReturnButton
+  },
+  methods: {
+    handleClick: function(lang) {
+      this.language = lang;
+    },
+  },
+  data: function() {
+    return {
+      languages: [],
+      language: 'sv',
+    };
+  },
+  mounted: function() {
+    this.languages = languages; 
+  },
+  beforeRouteEnter(to, from, next) {
+    next((vm) => {
+      if (!from.name) {
+        vm.showWelcome = true;
+      }
+    });
+  },
+};
 
 </script>
 
 <style scoped>
+
+.category-container {
+  display: flex;
+  flex-flow: row wrap;
+  width: 90%;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.border-container {
+  border-radius: 30px;
+  padding-bottom: 6%;
+  margin: 3% 5%;
+  transition: 1.5s;
+}
+
+.border-container.active {
+  border: 2px solid black;
+  margin: 4.91% 12%;
+}
 
 #logo {
   margin: -30px;
@@ -56,12 +108,6 @@ footer {
   color: rgb(101, 101, 101);
   width: 100%;
   margin-bottom: 10px;
-}
-
-@media screen and (max-height: 850px) {
-  footer {
-    display: none;
-  }
 }
 
 .center-div
