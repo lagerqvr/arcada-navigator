@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="background">
     <AppReturnButton />
     <img
       id="logo"
@@ -10,48 +10,50 @@
     <div>
       <div class="center-div" v-if="days[0]">
         <h2>Lunch</h2>
-        <div class="flex-box-1">
-          <h3>Monday</h3>
-          <div v-for="day in days[0].SetMenus" :key="day.Date">
-            {{ day.Name + ": " }}
-            <div v-for="component in day.Components" :key="component">
-              {{ component + ", " }}
+        <div class="flex-container">
+          <div class="flex-item">
+            <h3>Monday</h3>
+            <div v-for="day in days[0].SetMenus" :key="day.Date">
+              <b>{{ day.Name + ': ' }}</b>
+              <div v-for="component in day.Components" :key="component">
+                {{ component + ', ' }}
+              </div>
             </div>
           </div>
-        </div>
-        <div class="flex-box-2">
-          <h3>Tuesday</h3>
-          <div v-for="day in days[1].SetMenus" :key="day.Date">
-            {{ day.Name + ": " }}
-            <div v-for="component in day.Components" :key="component">
-              {{ component + ", " }}
+          <div class="flex-item item2">
+            <h3>Tuesday</h3>
+            <div v-for="day in days[1].SetMenus" :key="day.Date">
+              <b>{{ day.Name + ': ' }}</b>
+              <div v-for="component in day.Components" :key="component">
+                {{ component + ', ' }}
+              </div>
             </div>
           </div>
-        </div>
-        <div class="flex-box-3">
-          <h3>Wednesday</h3>
-          <div v-for="day in days[2].SetMenus" :key="day.Date">
-            {{ day.Name + ": " }}
-            <div v-for="component in day.Components" :key="component">
-              {{ component + ", " }}
+          <div class="flex-item">
+            <h3>Wednesday</h3>
+            <div v-for="day in days[2].SetMenus" :key="day.Date">
+              <b>{{ day.Name + ': ' }}</b>
+              <div v-for="component in day.Components" :key="component">
+                {{ component + ', ' }}
+              </div>
             </div>
           </div>
-        </div>
-        <div class="flex-box-4">
-          <h3>Thursday</h3>
-          <div v-for="day in days[3].SetMenus" :key="day.Date">
-            {{ day.Name + ": " }}
-            <div v-for="component in day.Components" :key="component">
-              {{ component + ", " }}
+          <div class="flex-item item2">
+            <h3>Thursday</h3>
+            <div v-for="day in days[3].SetMenus" :key="day.Date">
+              <b>{{ day.Name + ': ' }}</b>
+              <div v-for="component in day.Components" :key="component">
+                {{ component + ', ' }}
+              </div>
             </div>
           </div>
-        </div>
-        <div class="flex-box-5">
-          <h3>Friday</h3>
-          <div v-for="day in days[4].SetMenus" :key="day.Date">
-            {{ day.Name + ": " }}
-            <div v-for="component in day.Components" :key="component">
-              {{ component + ", " }}
+          <div class="flex-item">
+            <h3>Friday</h3>
+            <div v-for="day in days[4].SetMenus" :key="day.Date">
+              <b>{{ day.Name + ': ' }}</b>
+              <div v-for="component in day.Components" :key="component">
+                {{ component + ', ' }}
+              </div>
             </div>
           </div>
         </div>
@@ -62,15 +64,15 @@
 </template>
 
 <script>
-import AppReturnButton from "../components/AppReturnButton.vue";
-import axios from "axios";
+import AppReturnButton from '../components/AppReturnButton.vue';
+import axios from 'axios';
 
 export default {
   components: {
     AppReturnButton,
   },
   metaInfo: {
-    title: "Lunch",
+    title: 'Lunch',
   },
 
   data: () => ({
@@ -95,12 +97,17 @@ export default {
 </script>
 
 <style scoped>
-#logo {
-  margin: -30px;
-  margin-bottom: 20px;
+.background {
+  height: 100%;
+  background-color: #fff;
 }
 
-.textbox {
+#logo {
+  margin: -30px;
+  margin-bottom: 5px;
+}
+
+.tex-item {
   margin: 0px 200px;
 }
 
@@ -120,9 +127,40 @@ footer {
 
 .center-div {
   margin: 0 auto;
-  max-width: 900px;
-  height: 100px;
+  max-width: 100%;
   border-radius: 3px;
+}
+
+.flex-container {
+  display: flex;
+  margin: 0 auto;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  width: 95%;
+  justify-content: space-evenly;
+}
+
+.flex-item {
+  flex-wrap: nowrap;
+  min-width: 300px;
+  width: 17%;
+  padding: 25px 30px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 25px 15px;
+  margin: 10px 25px;
+  text-align: left;
+  border-radius: 15px;
+  background-color: #812990;
+  color: #efefef;
+}
+
+.flex-item.item2 {
+  background-color: #9736a8;
+}
+
+h3 {
+  text-align: center;
+  margin-bottom: 15px;
 }
 
 @media screen and (max-width: 600px) {
@@ -150,45 +188,5 @@ h2 {
   #logo {
     height: 150px;
   }
-}
-.flex-box-1 {
-  display: flex;
-  flex-direction: row;
-  padding: 30px;
-  align-content: center;
-  justify-content: center;
-  background-color: grey;
-}
-.flex-box-2 {
-  display: flex;
-  flex-direction: row;
-  padding: 30px;
-  align-content: center;
-  justify-content: center;
-  background-color: rgb(240, 222, 222);
-}
-.flex-box-3 {
- display: flex;
-  flex-direction: row;
-  padding: 30px;
-  align-content: center;
-  justify-content: center;
-  background-color: rgb(189, 70, 70);
-}
-.flex-box-4 {
-  display: flex;
-  flex-direction: row;
-  padding: 30px;
-  align-content: center;
-  justify-content: center;
-  background-color: rgb(221, 55, 55);
-}
-.flex-box-5 {
-  display: flex;
-  flex-direction: row;
-  padding: 30px;
-  align-content: center;
-  justify-content: center;
-  background-color: rgb(65, 43, 43);
 }
 </style>
