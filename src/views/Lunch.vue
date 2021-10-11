@@ -105,60 +105,13 @@ h2 {
   font-weight: 700;
 }
 
-.heart {
-  border-radius: 11px 0;
-  font-size: 30px;
-  line-height: 21px;
-  text-align: center;
-  padding: 51px;
-  width: 201px;
-  -webkit-animation: heart-animation 1s infinite;
-  -moz-animation: heart-animation 1s infinite;
-  -o-animation: heart-animation 1s infinite;
-  animation: heart-animation 1s infinite;
-}
-
-@webkit-keyframes heart-animation {
-  0%,
-  100% {
-    font-size: 22px;
+@media screen and (max-height: 850px) {
+  footer {
+    display: none;
   }
-
-  10% {
-    font-size: 30px;
+  #logo {
+    height: 150px;
   }
 }
 
-@-moz-keyframes heart-animation {
-  0%,
-  100% {
-    font-size: 22px;
-  }
-
-  50% {
-    font-size: 30px;
-  }
-}
-
-@-o-keyframes heart-animation {
-  0%,
-  100% {
-    font-size: 22px;
-  }
-
-  50% {
-    font-size: 30px;
-  }
-}
-
-@keyframes heart-animation {
-  0%,
-  100% {
-    font-size: 22px;
-  }
-
-  50% {
-    font-size: 30px;
-  }
-}
 </style>
