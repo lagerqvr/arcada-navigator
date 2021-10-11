@@ -8,15 +8,53 @@
       height="200px"
     />
     <div>
-      <div class="center-div">
+      <div class="center-div" v-if="days[0]">
         <h2>Lunch</h2>
-        <h3>Monday</h3>
-        <div v-for="day in days[0].SetMenus" :key="day.Date">
-          <div v-for="component in day.Components" :key="component">
-            {{ component }}
+        <div class="flex-box-1">
+          <h3>Monday</h3>
+          <div v-for="day in days[0].SetMenus" :key="day.Date">
+            {{ day.Name + ": " }}
+            <div v-for="component in day.Components" :key="component">
+              {{ component + ", " }}
+            </div>
           </div>
         </div>
-        <h3>Tuesday</h3>
+        <div class="flex-box-2">
+          <h3>Tuesday</h3>
+          <div v-for="day in days[1].SetMenus" :key="day.Date">
+            {{ day.Name + ": " }}
+            <div v-for="component in day.Components" :key="component">
+              {{ component + ", " }}
+            </div>
+          </div>
+        </div>
+        <div class="flex-box-3">
+          <h3>Wednesday</h3>
+          <div v-for="day in days[2].SetMenus" :key="day.Date">
+            {{ day.Name + ": " }}
+            <div v-for="component in day.Components" :key="component">
+              {{ component + ", " }}
+            </div>
+          </div>
+        </div>
+        <div class="flex-box-4">
+          <h3>Thursday</h3>
+          <div v-for="day in days[3].SetMenus" :key="day.Date">
+            {{ day.Name + ": " }}
+            <div v-for="component in day.Components" :key="component">
+              {{ component + ", " }}
+            </div>
+          </div>
+        </div>
+        <div class="flex-box-5">
+          <h3>Friday</h3>
+          <div v-for="day in days[4].SetMenus" :key="day.Date">
+            {{ day.Name + ": " }}
+            <div v-for="component in day.Components" :key="component">
+              {{ component + ", " }}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <footer><i>Arcada Navigator v1.0.1</i></footer>
@@ -24,15 +62,15 @@
 </template>
 
 <script>
-import AppReturnButton from '../components/AppReturnButton.vue';
-import axios from 'axios';
+import AppReturnButton from "../components/AppReturnButton.vue";
+import axios from "axios";
 
 export default {
   components: {
     AppReturnButton,
   },
   metaInfo: {
-    title: 'Lunch',
+    title: "Lunch",
   },
 
   data: () => ({
@@ -49,7 +87,7 @@ export default {
         )
         .then((response) => {
           this.days = response.data.MenusForDays;
-          // console.log(this.days);
+          console.log(this.days);
         });
     },
   },
@@ -112,5 +150,45 @@ h2 {
   #logo {
     height: 150px;
   }
+}
+.flex-box-1 {
+  display: flex;
+  flex-direction: row;
+  padding: 30px;
+  align-content: center;
+  justify-content: center;
+  background-color: grey;
+}
+.flex-box-2 {
+  display: flex;
+  flex-direction: row;
+  padding: 30px;
+  align-content: center;
+  justify-content: center;
+  background-color: rgb(240, 222, 222);
+}
+.flex-box-3 {
+ display: flex;
+  flex-direction: row;
+  padding: 30px;
+  align-content: center;
+  justify-content: center;
+  background-color: rgb(189, 70, 70);
+}
+.flex-box-4 {
+  display: flex;
+  flex-direction: row;
+  padding: 30px;
+  align-content: center;
+  justify-content: center;
+  background-color: rgb(221, 55, 55);
+}
+.flex-box-5 {
+  display: flex;
+  flex-direction: row;
+  padding: 30px;
+  align-content: center;
+  justify-content: center;
+  background-color: rgb(65, 43, 43);
 }
 </style>
