@@ -74,6 +74,9 @@ const template_params = {
 
 export default {
   components: { AppReturnButton },
+  metaInfo: {
+      title: 'Help'
+    },
 
   data() {
       return {

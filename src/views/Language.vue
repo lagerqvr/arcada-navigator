@@ -41,6 +41,9 @@ export default {
     CategoryButton,
     AppReturnButton
   },
+  metaInfo: {
+      title: 'Language'
+    },
   methods: {
     handleClick: function(lang) {
       this.language = lang;

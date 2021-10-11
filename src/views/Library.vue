@@ -29,6 +29,9 @@ import AppReturnButton from '../components/AppReturnButton.vue';
 
 export default {
   components: { AppReturnButton },
+  metaInfo: {
+      title: 'Library'
+    },
       
 methods: {
     

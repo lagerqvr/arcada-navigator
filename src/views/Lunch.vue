@@ -33,6 +33,9 @@ export default {
   components: { 
      AppReturnButton 
   },
+  metaInfo: {
+      title: 'Lunch'
+    },
 
   data: () => ({
     info: {},

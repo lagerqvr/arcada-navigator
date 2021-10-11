@@ -39,6 +39,9 @@ export default {
     CategoryButton,
     WelcomeMessage,
   },
+  metaInfo: {
+      title: 'Arcada Navigator'
+    },
   methods: {
     handleClick: function(lang) {
       this.showWelcome = false;
