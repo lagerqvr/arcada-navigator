@@ -12,10 +12,10 @@
         <h2>Lunch</h2>
         <h3>Monday</h3>
         <p v-if="info.MenusForDays">{{ info.MenusForDays[0].SetMenus[0].Components[0] }}</p>
-        <p v-if="info.MenusForDays">{{ info.MenusForDays[0].SetMenus[1].Components[0] + ", " + info.MenusForDays[0].SetMenus[1].Components[1] + ", " + info.MenusForDays[0].SetMenus[1].Components[2] }}</p>
+        <p v-if="info.MenusForDays">{{ info.MenusForDays[0].SetMenus[1].Components[0] + ", " + info.MenusForDays[1].SetMenus[1].Components[1] + ", " + info.MenusForDays[0].SetMenus[1].Components[2] }}</p>
         <h3>Tuesday</h3>
-        <p v-if="info.MenusForDays">{{ info.MenusForDays[0].SetMenus[0].Components[0] }}</p>
-        <p v-if="info.MenusForDays">{{ info.MenusForDays[0].SetMenus[1].Components[0] + ", " + info.MenusForDays[0].SetMenus[1].Components[1] + ", " + info.MenusForDays[0].SetMenus[1].Components[2] }}</p>
+        <p v-if="info.MenusForDays">{{ info.MenusForDays[1].SetMenus[0].Components[0] }}</p>
+        <p v-if="info.MenusForDays">{{ info.MenusForDays[1].SetMenus[1].Components[0] + ", " + info.MenusForDays[1].SetMenus[1].Components[1] + ", " + info.MenusForDays[1].SetMenus[1].Components[2] }}</p>
 
 
       </div>
