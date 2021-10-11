@@ -1,7 +1,16 @@
 <template>
   <div class="weather-app">
     <AppReturnButton />
+
     <div class="main-app">
+    <img
+    
+      id="logo"
+      @click="$router.push('/')"
+      src="../assets/arcada_logo_v2.png"
+      height="200px"
+    />
+    <p class="text-center">The current weather.</p>
       <div class="top-side">
         <div class="cloudiness">
           <img src="../assets/animated/cloudy.svg" />
@@ -104,7 +113,13 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
+p {
+  margin-top: 30px;
+  text-align: left;
+  font-size: 27px;
+  color: rgb(23, 23, 23);
+}
 .weather-app {
   height: 100vh;
   width: 100vw;
@@ -117,8 +132,8 @@ export default {
 .main-app {
   background-color: lightblue;
   box-shadow: 0 19px 38px rgb(0 0 0 / 30%), 0 15px 12px rgb(0 0 0 / 22%);
-  width: 330px;
-  height: 600px;
+  width: 100%;
+  height: 100%;
   border-radius: 5px;
   display: flex;
   background-position: 50%;
@@ -167,5 +182,11 @@ export default {
 }
 .temperature-low {
   width: 30px;
+}
+
+#logo {
+  margin: -30px;
+  height: 200px;
+  margin-bottom: 5px;
 }
 </style>
