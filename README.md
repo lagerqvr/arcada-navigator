@@ -1,6 +1,6 @@
 # arcadanavigator
 
-Arcada-navigator is web application which was created as a group project during a course in Frameworks and web-applications at Arcada UAS (5 ECTS). Arcada-navigator allows for easier navigation of the Arcada campus building but also hosts features like the current lunch menu, public transport schedules and more. 
+Arcada-navigator is web application which was created as a group project during a course in Frameworks and Web-applications at Arcada UAS (5 ECTS). Arcada-navigator allows for easier navigation of the Arcada campus building but also hosts features like the current lunch menu, public transport schedules and more. 
 
 ## Project setup
 ```
